@@ -128,11 +128,36 @@ d &e&f\\ \hline
 \section{Kreiranje repozitorijuma i osnovne komande}
 \label{sec:kreiranje}
 
+Kako bi Git mogao da prati ko je napravio izmene, pre svega je potrebno da mu se predstavite. Izmedju ostalog, za to koristimo  \texttt{git config} komandu.
+\linebreak
+git config --global user.name <name>
+\linebreak
+git config --global user.email <email>
+\linebreak
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Time će biti napravljen direktorijum \texttt{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici XXX.
+
+U velikoj većini slučajeva, \texttt{git init} se poziva samo jednom, za pravljanje centralnog repozitorijuma. Kasnije, svi oni koji učestvuju u razvoju će taj repozitorijum kopirati na lokalne mašine korišćenjem komande:
+\linebreak
+\texttt{git clone <repozitorijum>}
+\linebreak
+gde \texttt{<repozitorijum>} treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
+
+git clone
+
+git config
+
+git help
+
+git status
+
+git add
+
+git commit
+
+git push
+
+git pull
 
 \section{Rad sa granama}
 \label{sec:grane}
