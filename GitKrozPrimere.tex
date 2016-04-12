@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{amsthm}
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
 
@@ -16,6 +17,7 @@
 
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
+\newtheorem{definicija}{Definicija}[section]
 
 \begin{document}
 
@@ -86,35 +88,33 @@ Ovde pišem uvodni tekst.
 
 \section{Sekcije git projekta i životni ciklus datoteke}
 \label{zivotni_ciklus}
+Pre nego što počnemo sa razmatranjem korišćenja git sistema bilo bi zgodno uvesti neki osnovne pojmove vezane za kontrolu verzija. Ovo može koristiti korisnicima koji nemaju nikakvog prethodnog iskustva sa sistemima za kontrolu verzija. Sa druge strane, korisnici koji imaju iskustva mogu preskočiti ovaj deo i nastaviti od "Sekcije git projekta". Terminologija varira od sistema do sistema, pa ćemo se fokusarite samo na one univerzalne termine, koji su zajednički za sve sisteme.
 
-Slike i tabele treba da budu u svom okruženju, sa odgovarajućim naslovima, obeležene labelom da koje omogućava referenciranje. 
+\begin{definicija}
+Repozitorijum ili baza predstavlja skup svih fajlava koja se nalaze pod kontrolom verzije.
+\end{definicija}
 
-\begin{primer} Ovako se ubacuje slika. Obratiti pažnju da je dodato i 
-\begin{verbatim}
-\usepackage{graphicx}
-\end{verbatim}
+\begin{definicija}
+Verzija predstavlja sliku stanja sadržaja repozitorijuma u nekom trenutku razvoja.
+\end{definicija}
 
+\begin{definicija}
+Radna kopija (working copy) predstavlja lokalnu kopiju verzije koja se menja tokom rada.
+\end{definicija}
 
-Na svaku sliku neophodno je referisati se negde u tekstu. Na primer, na slici \ref{fig:pande} prikazane su pande. 
-\end{primer}
+\begin{definicija}
+Podizanje promene ili komit (commit) predstavlja akciju kojom se trenutno stanje zapisuje u repozitorijum. Takodje može da se koristi za referisanje odredjene promene.
+\end{definicija}
 
-\begin{primer} I tabele treba da budu u svom okruženju, i na njih je neophodno referisati se u tekstu. Na primer, u tabeli \ref{tab:tabela1} su prikazana različita poravnanja u tabelama.
+\begin{definicija}
+Grana (branch) predstavlja imenovan tok razvoja nezavistan od ostalih tokova.
+\end{definicija}
+Iako su grane medjusobno nezavisne, one uglavnom imaju zajednički neki deo njihove istorije. Svaka grana pocinje kao kopija neke druge granaei odatle nastavlja da se razvija nezavisno. Početna grana, odnosno ona koja nije nastala kopijom neke druge se sreće pod nazivima trunk, mainline, master.
 
-\begin{table}[h!]
-\begin{center}
-\caption{Razlčita poravnanja u okviru iste tabele ne treba koristiti jer su nepregledna.}
-\begin{tabular}{|c|l|r|} \hline
-centralno poravnanje& levo poravnanje& desno poravnanje\\ \hline
-a &b&c\\ \hline
-d &e&f\\ \hline
-\end{tabular}
-\label{tab:tabela1}
-\end{center}
-\end{table}
-
-\end{primer}
-\subsection{Terminologija}
-\label{subsec:terminologija}
+\begin{definicija}
+Konflikt predstavlja situaciju u kojoj dva korisnika pokusavaju da podignu izmenu koja se odnosi na isti deo iste datoteke.
+\end{definicija}
+Više reči o konfliktima će biti u poglavlju *.
 
 \subsection{Sekcije git projekta}
 \label{subsec:sekcije}
