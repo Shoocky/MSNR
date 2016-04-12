@@ -15,6 +15,8 @@
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
 
+\lstMakeShortInline[columns=fixed]|
+
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 \newtheorem{definicija}{Definicija}[section]
@@ -88,7 +90,7 @@ Ovde pišem uvodni tekst.
 
 \section{Sekcije git projekta i životni ciklus datoteke}
 \label{zivotni_ciklus}
-Pre nego što počnemo sa razmatranjem korišćenja git sistema bilo bi zgodno uvesti neki osnovne pojmove vezane za kontrolu verzija. Ovo može koristiti korisnicima koji nemaju nikakvog prethodnog iskustva sa sistemima za kontrolu verzija. Sa druge strane, korisnici koji imaju iskustva mogu preskočiti ovaj deo i nastaviti od "Sekcije git projekta". Terminologija varira od sistema do sistema, pa ćemo se fokusarite samo na one univerzalne termine, koji su zajednički za sve sisteme.
+Pre nego što počnemo sa razmatranjem korišćenja git sistema bilo bi zgodno uvesti neki osnovne pojmove vezane za kontrolu verzija. Ovo može koristiti korisnicima koji nemaju nikakvog prethodnog iskustva sa sistemima za kontrolu verzija. Sa druge strane, korisnici koji imaju iskustva mogu preskočiti ovaj deo i nastaviti od "Sekcije git projekta". Terminologija varira od sistema do sistema, pa ćemo se fokusariti samo na one univerzalne termine, koji su zajednički za sve sisteme.
 
 \begin{definicija}
 Repozitorijum ili baza predstavlja skup svih fajlava koja se nalaze pod kontrolom verzije.
@@ -138,29 +140,41 @@ git config --global user.email <email>
 
 \end{lstlisting}
 
-Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika koji ga je napravio. Opcija \texttt{--global} označava da je podešavanje globalnog opsega, tj. važi za sve repozitorijume u sistemu. Izostavljanjem ove opcije podešavanje se vezaju samo za tekući repozitorijum. Sva podešavanja sa globnim opsegom se čuvaju u .gitconfig datoteci u home direktorijumu na Linux sistemima. Direktnim menjanjem sadržaja ove datoteke se može izbeći kucanje komandi za svako podešavanje koje želimo da promenimo. Dodatne informacije o git config komandi kao i neka zgodna podešavanja se mogu naći u dodatku *.
+Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika koji ga je napravio. Opcija |--global| označava da je podešavanje globalnog opsega, tj. važi za sve repozitorijume u sistemu. Izostavljanjem ove opcije podešavanje se vezaju samo za tekući repozitorijum. Sva podešavanja sa globnim opsegom se čuvaju u \textit{.gitconfig} datoteci u \textit{home} direktorijumu na Linux sistemima. Direktnim menjanjem sadržaja ove datoteke se može izbeći kucanje komandi za svako podešavanje koje želimo da promenimo. Dodatne informacije o |git config| komandi kao i neka zgodna podešavanja se mogu naći u dodatku *.
 
 \subsection{git init, git clone}
 \label{subsec:git_init}
-Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Za ovo se koristi komanda \texttt{git init}. Time će biti napravljen direktorijum \texttt{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici XXX.
+Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici XXX.
 
-U velikoj većini slučajeva, \texttt{git init} se poziva samo jednom, za pravljanje centralnog repozitorijuma. Kasnije, svi oni koji učestvuju u razvoju će taj repozitorijum kopirati na lokalne mašine korišćenjem komande:
-\linebreak
+U velikoj većini slučajeva, |git init| se poziva samo jednom, za pravljanje centralnog repozitorijuma. Kasnije, svi oni koji učestvuju u razvoju će taj repozitorijum kopirati na lokalne mašine korišćenjem komande:
 \begin{lstlisting}[language=bash]
 git clone <repozitorijum>
 \end{lstlisting}
+\noindent
+gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
-gde \texttt{<repozitorijum>} treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
-git clone
+\subsection{git diff}
+\label{subsec:git_diff}
 
-git config
+
+\subsection{git add}
+\label{subsec:git_add}
+Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebno je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
+
+
+
+\subsection{git status}
+\label{subsec:git_status}
+Provera koje su to datoteke spremne za komitovanje (u Stagig Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
+
+
+\subsection{git commit}
+\label{subsec:git_commit}
+Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. U primeru na slici XXX, -m opcijom i navođenjem poruke nakon nje smo naznačili smo da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
+
 
 git help
-
-git status
-
-git add
 
 git commit
 
