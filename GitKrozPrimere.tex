@@ -147,7 +147,10 @@ git config --global user.email <email>
 \noindent
 Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika koji ga je napravio. Opcija |--global| označava da je podešavanje globalnog opsega, tj. važi za sve repozitorijume u sistemu. Izostavljanjem ove opcije podešavanje se vezaju samo za tekući repozitorijum. Sva podešavanja sa globnim opsegom se čuvaju u \textit{.gitconfig} datoteci u \textit{home} direktorijumu na Linux sistemima. Direktnim menjanjem sadržaja ove datoteke se može izbeći kucanje komandi za svako podešavanje koje želimo da promenimo. Dodatne informacije o |git config| komandi kao i neka zgodna podešavanja se mogu naći u dodatku *.
 
-\subsection{git init, git clone}
+\subsection{Osnovne komande}
+\label{osnovne_komande}
+
+\subsubsection*{git init, git clone}
 \label{subsec:git_init}
 Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici XXX.
 
@@ -159,34 +162,55 @@ git clone <repozitorijum>
 gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
 
-\subsection{git diff}
+\subsubsection*{git diff}
 \label{subsec:git_diff}
 
 
-\subsection{git add}
+\subsubsection*{git add}
 \label{subsec:git_add}
 Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebno je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
 
 
 
-\subsection{git status}
+\subsubsection*{git status}
 \label{subsec:git_status}
 Provera koje su to datoteke spremne za komitovanje (u Stagig Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
 
 
-\subsection{git commit}
+\subsubsection*{git commit}
 \label{subsec:git_commit}
 Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. U primeru na slici XXX, -m opcijom i navođenjem poruke nakon nje smo naznačili smo da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
+\\\\
+Pomenuti SHA1 i HEAD
 
+\subsubsection*{git log}
+\label{log}
 
-\subsection{git push}
-\label{subsec:git_push}
+\subsubsection{git checkout}
+\label{checkout}
 
+Pomenuti detached head
 
+\subsection{Ispravljanje grešaka}
+\label{greske}
 
-git help
+U zavisnosti od toga u kom se stanju nalazi fajl koji sadrži grešku koji želimo da ispravimo, ispravljanje grešaka možemo svrstati u četiri kategorije. One su redom: ispravljanje lokalnih grešaka, ispravljanje grešaka koje se nalaze u Staging Area, ispravljanje komitovanih grešaka i uklanjanje kompletnih komitova.
 
-git pull (fetch?)
+\subsubsection*{Ispravljanje lokalnih grešaka}
+\label{lokalne_greske}
+Pretpostavimo da smo napravili grešku koju jos nismo ni pripremili za komit, niti je komitovali, a pritom želimo da je ispravimo. Tacnije, želimo da se vratimo na stanje koje je bilo pre naših izmena. Već smo se upoznali sa komandom checkout i jasno je da ona može da se iskoristi i za ovakvu situaciju. Dakle, dovoljno je komandom git checkout dovući poslednju ispravnu verziju datoteke koja nam je potrebna.
+
+\subsubsection*{Ispravljanje grešaka u Staging Area}
+\label{staging_greske}
+
+Sada pretpostavimo da smo napravili dobru izmenu, pripremili je za sledeći komit, a potom shvatili da smo ipak napravili grešku, i da ili želimo da dodamo jos neku izmenu, ili želimo da potpuno odustanemo od izmena.
+\subsubsection*{Ispravljanje komitovanih grešaka}
+\label{komitovane_greske}
+\subsubsection*{Uklanjanje komitova}
+\label{uklanjanje_komitova}
+git revert \\
+git reset \\
+git checkout \\
 
 \section{Rad sa granama}
 \label{sec:grane}
@@ -214,11 +238,12 @@ Ovde pišem tekst.
 \section{Rad sa udaljenim repozitorijumima}
 \label{sec:udaljeni_repozitorijumi}
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+\subsection{git push}
+\label{subsec:git_push}
+
+
+
+git pull (fetch?)
 
 \section{Zaključak}
 \label{sec:zakljucak}
