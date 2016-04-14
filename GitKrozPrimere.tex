@@ -91,13 +91,7 @@ Sa ovime u vidu, koraci u okviru jednog komita bi izgledali ovako.
 Posle svakog komita sadržaj radnog i Git direktorijuma će biti isti i ciklus se može ponovo započeti. Ilustracija ovih koraka je prikazana na slici \ref{fig:git_sekcije}.\\
 Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste radi ispravljanja grešaka i njima se bavimo u poglavlju \ref{subsec:greske}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.25]{images/git_sekcije.png}
-\end{center}
-\caption{sekcije Git projekta}
-\label{fig:git_sekcije}
-\end{figure}
+
 
 
 \subsection{Životni ciklus datoteke}
@@ -136,6 +130,15 @@ git clone <repozitorijum>
 \end{lstlisting}
 \noindent
 gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.55]{images/init.png}
+\end{center}
+\caption{inicijalizacija Git projekta}
+\label{fig:git_sekcije}
+\end{figure}
 
 
 \subsubsection*{git diff}
@@ -177,6 +180,14 @@ Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i 
 \\\\
 Svaki komit u bazi je jedinstveno odredjen SHA-1 heš vrednošću. Za referisanje se najčesće koristi skraćena verzija, odnosno prvih 7 karaktera (npr. 6cfaf1c).
 Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene komitove. Jedan od njih je HEAD. HEAD predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.55]{images/commit.png}
+\end{center}
+\caption{OVDE NESTO}
+\label{fig:git_sekcije}
+\end{figure}
 
 \subsubsection*{git log}
 \label{log}
