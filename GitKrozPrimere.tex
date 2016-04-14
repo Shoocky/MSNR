@@ -161,12 +161,31 @@ Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene 
 \includegraphics[scale=0.55]{images/commit.png}
 \end{center}
 \caption{OVDE NESTO}
-\label{fig:git_sekcije}
+\label{fig:slika_commit}
 \end{figure}
 
 \subsubsection*{git log}
 \label{log}
-Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku.
+Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku. 
+
+\begin{table}[h!]
+\begin{center}
+
+
+\begin{tabular}{cc} \hline
+komanda & opis\\ \hline
+-n <number> & ograničava broj prikazanih komitova na <number> \\
+--skip=<number> & preskače <number> komitova pre početka izlistavanja \\
+--since=<date> & prikazuje komitove nastale posle <date> \\
+--author=<author> & prikazuje komitove navedenog autora \\
+--format=<format> & detaljno formatiranje. Slično kao printf. (pogledati man stranice)
+\end{tabular}
+\caption{Neke od opcija git log komande}
+\end{center}
+\label{tab:tabela1}
+
+\end{table}
+
 
 \subsubsection*{git diff}
 \label{subsec:git_diff}
