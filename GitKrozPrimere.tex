@@ -31,7 +31,8 @@
 
 \abstract{
 
-U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da ispoštujete!) kao i par tehničkih pomoćnih uputstava. Molim Vas da kada budete predavali seminarski rad, imenujete datoteke tako da sadrže temu seminarskog rada, kao i imena i prezimena članova grupe (ili samo temu i prezimena, ukoliko je sa imenima predugačko). Predaja seminarskih radova biće isključivo preko web forme, a NE slanjem mejla.
+Ovaj rad pokušava da pruži kratak vodič kroz jedan od najčešće korišćenih i najpopularnijih sistema za kontrolu verzija. Git. Rad prolazi kroz osnovne komande i način funkcionisanja Git sistema, na način koji bi trebalo da obezbedi da čitalac po završetku čitanja može da počne sa samostalnim korišćenjem ovog sistema.
+
 
 \tableofcontents
 
@@ -39,54 +40,12 @@ U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite paž
 
 \section{Uvod}
 \label{sec:uvod}
-
-Ко жели, може да пише рад ћирилицом. У том случају, неопходно је да су инсталирани одговарајући пакети: texlive-fonts-extra, texlive-latex-extra, texlive-lang-cyrillic, texlive-lang-other. \\
-
-Uz sve novouvedene termine u zagradi naglasiti od koje engleske reči termin potiče. Naredni primeri ilustruju način uvođenja enlegskih termina kao i citiranje.
-
-\begin{primer}
-Problem zaustavljanja (eng.~{\em halting problem}) je neodlučiv \cite{haltingproblem}.
-\end{primer}
-
-\begin{primer}
-Za prevođenje programa napisanih u programskom jeziku C može se koristiti GCC kompajler \cite{gcc}.
-\end{primer}
-
-\begin{primer}
- Da bi se ispitivala ispravost softvera, najpre je potrebno precizno definisati njegovo ponašanje \cite{laski2009software}. 
-\end{primer}
-
-Reference koje se koriste u ovom tekstu zadate su u datoteci {\em seminarski.bib}. Prevođenje u pdf format u Linux okruženju može se uraditi na sledeći način:
-\begin{verbatim}
-pdflatex TemaImePrezime.tex 
-bibtex TemaImePrezime.aux 
-pdflatex TemaImePrezime.tex 
-pdflatex TemaImePrezime.tex 
-\end{verbatim}
-Prvo latexovanje je neophodno da bi se generisao {\em .aux} fajl. {\em bibtex} proizvodi odgovarajući {\em .bbl} fajl koji se koristi za generisanje literature. 
-Potrebna su dva prolaza (dva puta pdflatex) da bi se reference ubacile u tekst (tj da ne bi ostali znakovi pitanja umesto referenci). Dodavanjem novih referenci potrebno je ponoviti ceo postupak.  
-
-
-Broj naslova i podnaslova je proizvoljan. Neophodni su samo Uvod i Zaključak. Na poglavlja unutar teksta referisati se po potrebi. 
-\begin{primer}
-U odeljku \ref{sec:naslov1} precizirani su osnovni pojmovi, dok su zaključci dati u odeljku \ref{sec:zakljucak}.
-\end{primer}
-
-Još jednom da napomenem da nema razloga da pišete:
-\begin{verbatim}
-\v{s} i \v{c} i \'c ...
-\end{verbatim}
-Možete koristiti srpska slova
-\begin{verbatim}
-š i č i ć ... 
-\end{verbatim}
-
-
-Ovde pišem uvodni tekst.
-Ovde pišem uvodni tekst. 
-Ovde pišem uvodni tekst. 
-Ovde pišem uvodni tekst. 
-
+Sistemi za kontrolu verzija predstavljaju jedan od najvažnijih alata pri razvoju softvera. Danas se teško može zamisliti bilo kakav projekat koji ne koristi jedan ovakav sistem. Nažalost, njihovo poznavanje se pretpostavlja, a studenti računarskih nauka se sa njima susreću samo kroz pominjanje.\\ Svrha ovo rada je pre svega upoznavanje citaoca koji nema nikakvo predznanje, ili je ono minimalno, sa osnovnim komandama i nainom funkcionisa sistema Git(u daljem tekstu samo Git). Rad moze da sluzi kao uvod potpunim pocetnicima, ili kao brzi podsednik naprednim korisnicima.\\
+U ovom radu se nećemo baviti teorijskim osnovama kontrole verzija, kao što su implementacija praćenja promena, razlike izmedju distribuiranih i centralizovanih sistema za kontrolu verzija itd. Izvori koji sadrže detaljnija objasnjanja, kao i stvari koji su van okvira ovog rada se mogu naći u sekciji literatura.\\
+Na početku se bavimo životnim ciklusom datoteke koja se nalazi u Git sistemu. Ovaj kratki, i jedini teorijski osvrt u ovom radu predstavlja osnovni preduslov za pravilno razumevanje načina na koji Git prati i čuva promene. Takodje izlažemo osnovnu terminologiju u sistemima za kontrolu verzija, u slučaju da je čitaocu ovo prvi dodir sa temom.\\
+Potom se bavimo podešavanjem okruženja za rad.
+Ostatak rada je koncipiran tako da se uvode redom osnovne Git komande, zajedno sa definicijom i primerom, na način koji bi po završetku čitanja, stvorio sliku o mogućnostima, efikasnosti i lakoći za rad koju pruža Git.
+Za sve primere koristimo komandnu liniju (konzolu). Iako postoji veliki broj grafičkih korisničkih okruženja, oni spadaju van okvira ovog rada, a i sama komandna linija je više nego dovoljna za ilustraciju izabranih tema.
 
 \section{Sekcije git projekta i životni ciklus datoteke}
 \label{zivotni_ciklus}
