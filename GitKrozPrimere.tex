@@ -80,7 +80,24 @@ Više reči o konfliktima će biti u poglavlju *.
 
 \subsection{Sekcije git projekta}
 \label{subsec:sekcije}
-Kako bi se potpuno shvatilo funkcionisanje git-a, potrebno je razumeti njegove tri sekcije: radni direktorijum, "staging area" i Git direktorijum. \textbf{Radni direktorijum} sadrži samo jednu verziju datoteka. To mogu biti datoteke koje ste povukli iz repozitorijuma ili novonapravljene datoteke, sa njima radite, odnosno njih menjate. \textbf{Staging area} je suštinski samo jedna datoteka koja čuva informacije o tome koje ste datoteke označili da želite da budu deo sledećeg komita. \textbf{Git direktorijum} je direktorijum u kom Git čuva sve meta podatke i bazu podataka svih fajlova koji su pod sistemom za kontrolom verzija. Iako postoji način da se datoteke direktno prebace iz radnog u Git direktorijum, to ne umanjuje znacaj sekcije "staging area". Na primer, ukoliko pri razvoju složenene funkcionalnosti napravite ispravnu, stabilnu verziju, medjutim želite da malo eksperimentišete sa njom jer mislite da postoji i bolje rešenje. Ukoliko ste je pre eksperimentisanja prebacili u "staging area" sekciju, ne postoji bojazan da bilo šta izgubite. Ako eksperimentisanje dovede do toga da je datoteka bespovratno uništena, i dalje postoji ispravna verzija u sekciji "staging area" koja se može komitovati.
+Kako bi se potpuno shvatilo funkcionisanje Gita, potrebno je razumeti njegove tri sekcije koje koristi za praćenje promena: Radni direktorijum, prostor za pripremu(eng. Staging area) i Git direktorijum odnosno baza. \textbf{Radni direktorijum} sadrži samo jednu verziju datoteka, i to one nad kojima se trenutno radi. To mogu biti datoteke koje ste povukli iz repozitorijuma ili novonapravljene datoteke, sa njima radite, odnosno njih menjate. \textbf{Staging area} je suštinski samo jedna datoteka koja čuva informacije o tome koje ste datoteke označili da želite da budu deo sledećeg komita. \textbf{Git direktorijum} je direktorijum u kom Git čuva sve meta podatke i bazu podataka svih fajlova koji su pod sistemom za kontrolom verzija. Iako postoji način da se datoteke direktno prebace iz radnog u Git direktorijum, to ne umanjuje znacaj sekcije Staging area. Na primer, ukoliko pri razvoju složenene funkcionalnosti napravite ispravnu, stabilnu verziju, medjutim želite da malo eksperimentišete sa njom jer mislite da postoji i bolje rešenje. Ukoliko ste je pre eksperimentisanja prebacili u Staging area, ne postoji bojazan da bilo šta izgubite. Ako eksperimentisanje dovede do toga da je datoteka bespovratno uništena, i dalje postoji ispravna verzija u Staging area koja se može komitovati.\\
+Sa ovime u vidu, koraci u okviru jednog komita bi izgledali ovako.
+\begin{enumerate}
+\item Izmena datoteka
+\item Odabir koje datoteke će učestvovati u sledećem komitu i njihovo prebacivanje u Staging Area
+\item Komitovanje
+\end{enumerate}
+
+Posle svakog komita sadržaj radnog i Git direktorijuma će biti isti i ciklus se može ponovo započeti. Ilustracija ovih koraka je prikazana na slici \ref{fig:git_sekcije}.\\
+Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste radi ispravljanja grešaka i njima se bavimo u poglavlju \ref{subsec:greske}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.25]{images/git_sekcije.png}
+\end{center}
+\caption{sekcije Git projekta}
+\label{fig:git_sekcije}
+\end{figure}
 
 
 \subsection{Životni ciklus datoteke}
@@ -138,9 +155,10 @@ Provera koje su to datoteke spremne za komitovanje (u Stagig Area) može se urad
 
 \subsubsection*{git commit}
 \label{subsec:git_commit}
-Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. U primeru na slici XXX, -m opcijom i navođenjem poruke nakon nje smo naznačili smo da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
+Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. Opcijom -m i navođenjem poruke nakon nje se naznačava da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
 \\\\
-Pomenuti SHA1 i HEAD
+Svaki komit u bazi je jedinstveno odredjen SHA-1 heš vrednošću. Za referisanje se najčesće koristi skraćena verzija, odnosno prvih 7 karaktera (npr. 6cfaf1c).
+Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene komitove. Jedan od njih je HEAD. HEAD predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.
 
 \subsubsection*{git log}
 \label{log}
@@ -151,7 +169,7 @@ Pomenuti SHA1 i HEAD
 Pomenuti detached head
 
 \subsection{Ispravljanje grešaka}
-\label{greske}
+\label{subsec:greske}
 
 U zavisnosti od toga u kom se stanju nalazi fajl koji sadrži grešku koji želimo da ispravimo, ispravljanje grešaka možemo svrstati u četiri kategorije. One su redom: ispravljanje lokalnih grešaka, ispravljanje grešaka koje se nalaze u Staging Area, ispravljanje komitovanih grešaka i uklanjanje kompletnih komitova.
 
