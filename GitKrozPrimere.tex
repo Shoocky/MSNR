@@ -270,7 +270,14 @@ Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilu
 
 \subsection{Merge}
 \label{subsec:merge}
-Merge ili spajanje predstavlja akciju spajanja istorije dve grane, tako da posle spajanja pokazuju na isti komit. Ovo se postiže komandom |git merge <ime grane>|. Rezultat ove operacije je ilustrovan na slici X. Stanje pre spajanja je levo, dok je stanje posle spajanja desno. U trenutku poziva ove komande Git pronalazi najnovije komitove grana koje učestvuju u spajanju kao i njihovog zajedničkog pretka. U ovom slučaju to su redom, K2, K3 i K4. Potom pravi novi komit kao razliku ova tri komita i dodaje ih kao novi komit master grane. Sada master sadrži sve promene koje se nalaze u ekperimentalnoj grani i ona se po potrebi može obrisati.
+Merge ili spajanje predstavlja akciju spajanja istorije dve grane, tako da posle spajanja pokazuju na isti komit. Ovo se postiže komandom |git merge <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:merge}. Stanje pre spajanja je levo, dok je stanje posle spajanja desno. U trenutku poziva ove komande Git pronalazi najnovije komitove grana koje učestvuju u spajanju kao i njihovog zajedničkog pretka. U ovom slučaju to su redom, K2, K3 i K4. Potom pravi novi komit kao razliku ova tri komita i dodaje ga kao novi komit master grane (K5). Sada master sadrži sve promene koje se nalaze u ekperimentalnoj grani i ona se po potrebi može obrisati.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/merge.png}
+\end{center}
+\caption{Ilustracija procesa spajanja}
+\label{fig:merge}
+\end{figure}
 
 \subsection{Konflikti}
 Jedna od najverovatnijih stvari koja će se desiti pri spajanju ili rebase procesu je da će nastati konflikt. Konflikt predstavlja situaciju u kojoj Git nije u stanju da razazna čiju verziju treba da primeni. Konflikti u Git sistemu je potrebno rešiti ručno. Kada dodje do konflikta git prekida sa ovim akcijama upisuje izmene obe strane i traži od korisnika da razreši konflikt pre nego što nastavi. Mesto gde je nastao konflikt se može prepoznati po tome što se u datoteci koju Git prijavi kao problematičnu nalaži sledeći segment:
