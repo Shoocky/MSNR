@@ -269,7 +269,14 @@ Kada završimo sa razvojem naše grane i ispostavi se da nam razvijeni dodaci od
 \subsection{Rebase}
 \label{subsec:rebase}
 Rebase(prevod nepoznat. Ostaviti za finalnu verziju) predstavlja akciju integrisanja razlika izmedju trenutne grane i neke druge, tačnije pomerenje komita u kom su se grane razdvojile na najsvežiji komit grane sa kojom se vrši integracija.\\
-Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilustrovan na slici X. Prvobitno je komit u kome su grane razdvojile bio K5. Grane su se nezavisno razvijale i u jednom trenutku je pozvan rebase sa namerom da se promene nastale na master grani integrišu u eksperimentalnu granu. U trenutku pozivanja komande rebase, prvo što Git uradi je pronalaženje zajedničkog pretka dveju grana (u ovom slučaju K5). Potom privremeno čuva sve komitove nastale od tog trenutka na grani na kojoj se nalazimo (Eksperiment), i pomera trenutnu granu na granu koju integrišemo (K7), tako da je sad prvi zajednički predak K7. Nakon ovog dodaje sve privremeno sačuvane komitove i pomera pokazivač trenutno grane na poslednji. Ovime je proces rabase završen.
+Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:rebase}. Prvobitno je komit u kome su grane razdvojile bio K5. Grane su se nezavisno razvijale i u jednom trenutku je pozvan rebase sa namerom da se promene nastale na master grani integrišu u eksperimentalnu granu. U trenutku pozivanja komande rebase, prvo što Git uradi je pronalaženje zajedničkog pretka dveju grana (u ovom slučaju K5). Potom privremeno čuva sve komitove nastale od tog trenutka na grani na kojoj se nalazimo (Eksperiment), i pomera trenutnu granu na granu koju integrišemo (K7), tako da je sad prvi zajednički predak K7. Nakon ovog dodaje sve privremeno sačuvane komitove i pomera pokazivač trenutno grane na poslednji. Ovime je proces rabase završen.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/rebase.png}
+\end{center}
+\caption{Ilustracija procesa spajanja}
+\label{fig:rebase}
+\end{figure}
 
 \subsection{Merge}
 \label{subsec:merge}
