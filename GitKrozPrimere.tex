@@ -208,21 +208,7 @@ komanda & opis\\ \hline
 \label{subsec:git_diff}
 Komanda |git diff| ispisuje razlike izmedju radnog direktorijuma i Staging area, radnog direktorijuma i poslednjeg komita ili Stagin area i poslednjeg komita. \\
 Podrazumevano se prikazuje razlika izmedju radnog direktorijuma i Stagin area. Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika izmedju radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika izmedju Staging Area i poslednjeg komita.
-Izlaz |git diff| komande je sličan diff naredbi na Linux sistemu, al uz male izmene. Pogledajmo na primeru kako izgleda jedan izlaz.
-\begin{lstlisting}[language=bash]
-diff --git a/main.c b/main.c
-index 533bcad..d2a2349 100644
---- a/main.c
-+++ b/main.c
-@@ -1,3 +1,5 @@
-+#include <stdio.h>
- int main(){
--       printf("Hello World!\n");
-+       /*Zelimo da nam poruka budu na srpskom jeziku*/
-+       printf("Zdravo svete!\n");
- }
-\end{lstlisting}
-Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu). Za sad je dovoljno pomenuti da se u slucaju da nije navedene nijedna opcija, linije koje imaju - na pocetku nalaze u verziji koja je u okviru poslednjeg komita, dok su one koje imaju + nalaze u radnoj verziji.
+Izlaz |git diff| komande je sličan diff naredbi na Linux sistemu, a detalji se mogu naći u \cite{pocketguide} u poglavlju 11.
 
 
 \subsubsection*{git checkout}
@@ -263,7 +249,7 @@ Git je implementiran tako da je rad sa granama prirodan, brz i veoma efikasan i 
 \label{subsec:pravljenje_grana}
 Za pravljenje nove grane koristimo opciju |git branch <ime grane>|. Bitno je napomenuti da smo ovimo samo napravili novi pokazivač, i da se i dalje nalazimo na istoj grani na kojoj smo bili. Da bismo se prebacili na novokreiranu granu potrebno je uraditi |git checkout <ime grane>|. Da ne bi koristili dve komande za pravljenje i prebacivanje na novu granu, ovo je moguće uraditi jednom komandom: |git checkout -b <ime grane>|. 
 Sada, kada se nalazimo na novoj grani, svako dodavanje komita će zajedno sa pomeranjem našeg HEAD pokazivača, istovremeno pomerati i pokazivać koji odgovara grani na kojoj se nalazi. Skakanje sa grane na granu se može zamisliti jednostavnim menjanjem HEAD pokazivača, vrednošći pokazivača koji odgovara grani na koju želimo da skočimo.\\
-Za brisanje grana se koristi komanda |git branch -d <ime grane>|. Sve što će uraditi ova komanda je obrisati pokazivač tako da mi više nemamo uvid u njeno postojanje. Postavlja se pitanje da li će Git obrisati i sve komitove koje pripadaju samo obrisanoj grani? Neće. Ovo je još jedna od zgodnih strana Git-a, koji zapravo ništa ne briše kompletno, već samo nama nedozvoljava da direktno vidimo ``obrisane'' stvari. One se i dalje nalaze u .git direktorijumu, i za trajno brisanje podataka je potrebno ručno obrisati ih u njemu. Detalji o tome kako pronaći ovakve promene se nalaze u literaturi.\\\\
+Za brisanje grana se koristi komanda |git branch -d <ime grane>|. Sve što će uraditi ova komanda je obrisati pokazivač tako da mi više nemamo uvid u njeno postojanje. Postavlja se pitanje da li će Git obrisati i sve komitove koje pripadaju samo obrisanoj grani? Neće. Ovo je još jedna od zgodnih strana Git-a, koji zapravo ništa ne briše kompletno, već samo nama nedozvoljava da direktno vidimo ``obrisane'' stvari. One se i dalje nalaze u .git direktorijumu, i za trajno brisanje podataka je potrebno ručno obrisati ih u njemu. Detalji o tome kako pronaći ovakve promene se nalaze u \cite{progit}.\\\\
 Kada završimo sa razvojem naše grane i ispostavi se da nam razvijeni dodaci odgovoraju, poželjno je da imamo mogućnost da ih integrišemo sa sadržajem naše glavne grane. U Git-u je ovo moguće uraditi na dva različiti načina korišćenjem dve komande:|git rebase| i |git merge|.  
 
 \subsection{Rebase}
