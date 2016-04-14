@@ -225,10 +225,11 @@ index 533bcad..d2a2349 100644
 Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu). Za sad je dovoljno pomenuti da se u slucaju da nije navedene nijedna opcija, linije koje imaju - na pocetku nalaze u verziji koja je u okviru poslednjeg komita, dok su one koje imaju + nalaze u radnoj verziji.
 
 
-\subsubsection{git checkout}
+\subsubsection*{git checkout}
 \label{checkout}
-
-Pomenuti detached head
+Komanda |git checkout <file | branch | commit>| se koristi za menjanje radne kopije verzijom iz repozitorijuma. Specijalni slučaj korišćenja ove komande se odnosi na rad sa granama i objašnjen je u poglavlju \ref{subsec:pravljenje_grana}\\
+Ukoliko se navede ime datoteke sadržaj te datoteke u radnoj kopiji će biti zamenjem sadržajem te datoteke iz repozitorijuma, dok ukoliko se navede ime grane, sadržaj kompletnog radnog direktorijuma će biti zamenjem sadržajem grane iz repozitorijuma.\\
+U slučaju da se navede identifikator komita, dobiće se slika repozitorijuma koja odgovora tom komitu. U ovoj situaciji radni direktorijum će se nalaziti u ``detached HEAD'' stanju, tj. moguće je samo pogledati stanje, a ne i menjati ga. Da bi se nastavilo sa menjanjem potrebno je preuzeti sadržaj neke grane.
 
 \subsection{Ispravljanje grešaka}
 \label{subsec:greske}
@@ -242,14 +243,16 @@ Pretpostavimo da smo napravili grešku koju jos nismo ni pripremili za komit, ni
 \subsubsection*{Ispravljanje grešaka u Staging Area}
 \label{staging_greske}
 
-Sada pretpostavimo da smo napravili dobru izmenu, pripremili je za sledeći komit, a potom shvatili da smo ipak napravili grešku, i da ili želimo da dodamo jos neku izmenu, ili želimo da potpuno odustanemo od izmena.
+Sada pretpostavimo da smo napravili dobru izmenu, pripremili je za sledeći komit, a potom shvatili da smo ipak napravili grešku, i da ili želimo da dodamo jos neku izmenu, ili želimo da potpuno odustanemo od izmena. Za ovo je potrebno oslobidit Staging area komandom |git reset HEAD|. Ako se dodatno navede ime datoteka, samo ona će biti izbrisina iz Staging Area.
+
 \subsubsection*{Ispravljanje komitovanih grešaka}
 \label{komitovane_greske}
-\subsubsection*{Uklanjanje komitova}
-\label{uklanjanje_komitova}
-git revert \\
-git reset \\
-git checkout \\
+Do sada smo videli kako da ispravimo greške koja su nastale pre trajnog zapisivanja u repozitorijum. Postavlja se pitanje šta uraditi ako smo neke neželjene promene trajno zapisali, a želimo da ih ispravimo. Ovo je moguće postići na dva načina: korišćenjem |git revert <commit>| komande, i korišćenjem |git reset <commit>| komande sa opcijom |--hard|.\\
+|git revert| uvodi novi komit koji otklanja promene nastale komitom koji želimo da ispravimo, dok korišćenje |git reset| komande sa opcijom |--hard| trenutna grana će imati vrednost navedenog komita, i svi komitovi nastali posle njega će se izgubiti. \\
+Prvi način je bezbedan, ali ružan, jer umesto da eliminišemo neželjeni komit zapravo dobijamo dva komita koja se odnose na grešku, dok je drugi slučaj lepši ali ``prljaviji'', jer zapravo menjamo tok istorije repozitorijuma što nekad nije poželjno raditi, pogotovo kad su u pitanju udaljeni repozitorijumi. \\
+
+Ukoliko ne želimo da obrišemo kompletne promene uvedene komitom, već želimo da dodamo nešto što smo zaboravili ili da promenimo poruku, može se iskoristi |git commit| sa opcijom |--amend|  koja će dodatne izmeni samo dodata kao sastavni deo poslednjeg komita. Efekat ove komande je identičan kao da smo resetovali granu na prethodni komit, i napravili novi koji sadrži potpunu izmenu.
+
 
 \section{Rad sa granama}
 \label{sec:grane}
