@@ -273,13 +273,19 @@ Ovde pišem tekst.
 
 \section{Rad sa udaljenim repozitorijumima}
 \label{sec:udaljeni_repozitorijumi}
+Rad sa udaljenim repozitorijumima je gotovo neizbežan u korišćenju Git-a, no, obzirom da postoji nezavisan lokalni repozitorijum, to je prilično jednostavno. Potrebno je osvežiti sadržaj lokalnog repozitorijuma iz udaljenog, odnosno propagirati promene u udaljeni repozitorijum.
+
+
+\subsection{git fetch i git pull}
+\label{subsec:git_pull}
+Izmene sačuvane u udaljenom repozitorijum mogu se povući i u lokalni repozitorijum komandom |git fetch|. Medjutim, ova komanda ne osvežava i sadržaj radnog direktorijuma, već samo lokalnog repozitorijuma, a onda je na vama da to spojite sa izmenama u radnom direktorijumu. Ono što donekle ubrzava i olakšava ovaj proces je komanda |git pull|. Ona će za vas povući izmene iz udaljenog repozitorijuma i spojiti ih sa izmenama u radnom direktorijumu. Iako u velikoj većini slučajeva ovo radi sasvim dobro, treba ga koristiti s pažnjom jer ne postoji način da vidite koje su to izmene upravo napravljene u radnom direktorijumu i lokalnom repozitorijumu.
+
 
 \subsection{git push}
 \label{subsec:git_push}
+Slanje izmena komitovanih u lokani repozitorijum i deljenje sa timom u udaljenom repozitorijumu se ne vrši automatski, već se to mora uraditi ručno, unošenjem komande |git push|. Dodatno, navođenjem |<remote>| i |<branch>| nakon komande, može se precizirati na koji udljeni repozitorijum želite da pošaljete svoje izmene i na koju granu. Pravilo je da se pre slanja izmena u udaljeni repozitorijum, osveži sadržaj lokalnog, jer postoji mogućnost da su u međuvremenu propagirane dodatne izmene. Tada je na vama da sredite konflikte, ponovo povučete promene iz udaljenog repozitorijuma i ukoliko nije bilo nikakvih izmena, tada možete komandom |git push| poslati svoje izmene.
 
 
-
-git pull (fetch?)
 
 \section{Zaključak}
 \label{sec:zakljucak}
