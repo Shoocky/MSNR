@@ -91,13 +91,7 @@ Sa ovime u vidu, koraci u okviru jednog komita bi izgledali ovako.
 Posle svakog komita sadržaj radnog i Git direktorijuma će biti isti i ciklus se može ponovo započeti. Ilustracija ovih koraka je prikazana na slici \ref{fig:git_sekcije}.\\
 Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste radi ispravljanja grešaka i njima se bavimo u poglavlju \ref{subsec:greske}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.25]{images/git_sekcije.png}
-\end{center}
-\caption{sekcije Git projekta}
-\label{fig:git_sekcije}
-\end{figure}
+
 
 
 \subsection{Životni ciklus datoteke}
@@ -137,9 +131,14 @@ git clone <repozitorijum>
 \noindent
 gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.55]{images/init.png}
+\end{center}
+\caption{inicijalizacija Git projekta}
+\label{fig:git_sekcije}
+\end{figure}
 
-
- 
 \subsubsection*{git status}
 \label{subsec:git_status}
 Provera koje su to datoteke spremne za komitovanje (Staging Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
@@ -156,9 +155,19 @@ Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i 
 Svaki komit u bazi je jedinstveno odredjen SHA-1 heš vrednošću. Za referisanje se najčesće koristi skraćena verzija, odnosno prvih 7 karaktera (npr. 6cfaf1c).
 Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene komitove. Jedan od njih je HEAD. HEAD predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.
 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.55]{images/commit.png}
+\end{center}
+\caption{OVDE NESTO}
+\label{fig:git_sekcije}
+\end{figure}
+
 \subsubsection*{git log}
 \label{log}
-Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku.q
+Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku.
+
 \subsubsection*{git diff}
 \label{subsec:git_diff}
 Komanda |git diff| ispisuje razlike izmedju radnog direktorijuma i Staging area, radnog direktorijuma i poslednjeg komita ili Stagin area i poslednjeg komita. \\
@@ -178,6 +187,7 @@ index 533bcad..d2a2349 100644
  }
 \end{lstlisting}
 Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu). Za sad je dovoljno pomenuti da se u slucaju da nije navedene nijedna opcija, linije koje imaju - na pocetku nalaze u verziji koja je u okviru poslednjeg komita, dok su one koje imaju + nalaze u radnoj verziji.
+
 
 \subsubsection{git checkout}
 \label{checkout}
