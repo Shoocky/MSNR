@@ -140,17 +140,35 @@ gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokaln
 
 \subsubsection*{git diff}
 \label{subsec:git_diff}
+Komanda |git diff| ispisuje razlike izmedju radnog direktorijuma i Staging area, radnog direktorijuma i poslednjeg komita ili Stagin area i poslednjeg komita. \\
+Podrazumevano se prikazuje razlika izmedju radnog direktorijuma i Stagin area. Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika izmedju radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika izmedju Staging Area i poslednjeg komita.
+Izlaz |git diff| komande je sličan diff naredbi na Linux sistemu, al uz male izmene. Pogledajmo na primeru kako izgleda jedan izlaz.
+\begin{lstlisting}[language=bash]
+diff --git a/main.c b/main.c
+index 533bcad..d2a2349 100644
+--- a/main.c
++++ b/main.c
+@@ -1,3 +1,5 @@
++#include <stdio.h>
+ int main(){
+-       printf("Hello World!\n");
++       /*Zelimo da nam poruka budu na srpskom jeziku*/
++       printf("Zdravo svete!\n");
+ }
+\end{lstlisting}
+Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu)
+ 
 
 
 \subsubsection*{git add}
 \label{subsec:git_add}
-Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebno je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
+Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
 
 
 
 \subsubsection*{git status}
 \label{subsec:git_status}
-Provera koje su to datoteke spremne za komitovanje (u Stagig Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
+Provera koje su to datoteke spremne za komitovanje (Staging Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
 
 
 \subsubsection*{git commit}
