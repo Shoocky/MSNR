@@ -91,6 +91,13 @@ Sa ovime u vidu, koraci u okviru jednog komita bi izgledali ovako.
 Posle svakog komita sadržaj radnog i Git direktorijuma će biti isti i ciklus se može ponovo započeti. Ilustracija ovih koraka je prikazana na slici \ref{fig:git_sekcije}.\\
 Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste radi ispravljanja grešaka i njima se bavimo u poglavlju \ref{subsec:greske}
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.19]{images/sekcije.png}
+\end{center}
+\caption{sekcije Git-a}
+\label{fig:git_sekcije}
+\end{figure}
 
 
 
@@ -102,6 +109,13 @@ One koju su \textbf{praćene} mogu biti \textbf{modifikovane, nemodifikovane} i 
 \linebreak \indent
 \textbf{Nepraćene} datoteke, pored toga što mogu nastati pravljenjem novih datoteka, mogu biti i datoteke koje su bile pod sistemom za praćenje verzija, ali su obrisane odatle. Uvođenje nepraćenih datoteke pod sistem za kontrolu verzija započinje tako što se one označe kao spremne za komitovanje, a onda se mogu komitovati i time postaju praćene.
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.19]{images/lifecycle2.png}
+\end{center}
+\caption{životni ciklus datoteke u Git-u}
+\label{fig:git_lifecycle}
+\end{figure}
 
 
 \section{Kreiranje repozitorijuma i osnovne komande}
@@ -122,7 +136,7 @@ Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika
 
 \subsubsection*{git init, git clone}
 \label{subsec:git_init}
-Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici XXX.
+Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kome se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma u novonapravljenom direktorijumu moze se videti na slici \ref{fig:git_init}.
 
 U velikoj većini slučajeva, |git init| se poziva samo jednom, za pravljanje centralnog repozitorijuma. Kasnije, svi oni koji učestvuju u razvoju će taj repozitorijum kopirati na lokalne mašine korišćenjem komande:
 \begin{lstlisting}[language=bash]
@@ -136,7 +150,7 @@ gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokaln
 \includegraphics[scale=0.55]{images/init.png}
 \end{center}
 \caption{inicijalizacija Git projekta}
-\label{fig:git_sekcije}
+\label{fig:git_init}
 \end{figure}
 
 \subsubsection*{git status}
@@ -160,13 +174,13 @@ Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene 
 \begin{center}
 \includegraphics[scale=0.55]{images/commit.png}
 \end{center}
-\caption{OVDE NESTO}
-\label{fig:slika_commit}
+\caption{priprema i komitovanje novog fajla i pregled njegovog statusa tokom procesa}
+\label{fig:git_commit}
 \end{figure}
 
 \subsubsection*{git log}
 \label{log}
-Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku. 
+Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neke prečice za lepo formatirane ispise izložene u dodatku. 
 
 \begin{table}[h!]
 \begin{center}
@@ -178,7 +192,7 @@ komanda & opis\\ \hline
 --skip=<number> & preskače <number> komitova pre početka izlistavanja \\
 --since=<date> & prikazuje komitove nastale posle <date> \\
 --author=<author> & prikazuje komitove navedenog autora \\
---format=<format> & detaljno formatiranje. Slično kao printf. (pogledati man stranice)
+--format=<format> & detaljno formatiranje (pogledati man stranice)
 \end{tabular}
 \caption{Neke od opcija git log komande}
 \end{center}
