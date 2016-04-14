@@ -138,6 +138,27 @@ git clone <repozitorijum>
 gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
 
+
+ 
+\subsubsection*{git status}
+\label{subsec:git_status}
+Provera koje su to datoteke spremne za komitovanje (Staging Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
+
+\subsubsection*{git add}
+\label{subsec:git_add}
+Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
+
+
+\subsubsection*{git commit}
+\label{subsec:git_commit}
+Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. Opcijom -m i navođenjem poruke nakon nje se naznačava da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
+\\\\
+Svaki komit u bazi je jedinstveno odredjen SHA-1 heš vrednošću. Za referisanje se najčesće koristi skraćena verzija, odnosno prvih 7 karaktera (npr. 6cfaf1c).
+Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene komitove. Jedan od njih je HEAD. HEAD predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.
+
+\subsubsection*{git log}
+\label{log}
+Komanda |git log| se koristi za izlistavanja detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli * dok su neki prečice za lepo formatirane ispise izložene u dodatku.q
 \subsubsection*{git diff}
 \label{subsec:git_diff}
 Komanda |git diff| ispisuje razlike izmedju radnog direktorijuma i Staging area, radnog direktorijuma i poslednjeg komita ili Stagin area i poslednjeg komita. \\
@@ -156,30 +177,7 @@ index 533bcad..d2a2349 100644
 +       printf("Zdravo svete!\n");
  }
 \end{lstlisting}
-Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu)
- 
-
-
-\subsubsection*{git add}
-\label{subsec:git_add}
-Nakon pravljenja izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema datoteka za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
-
-
-
-\subsubsection*{git status}
-\label{subsec:git_status}
-Provera koje su to datoteke spremne za komitovanje (Staging Area) može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu spremne za komitovanje, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
-
-
-\subsubsection*{git commit}
-\label{subsec:git_commit}
-Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. Opcijom -m i navođenjem poruke nakon nje se naznačava da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.
-\\\\
-Svaki komit u bazi je jedinstveno odredjen SHA-1 heš vrednošću. Za referisanje se najčesće koristi skraćena verzija, odnosno prvih 7 karaktera (npr. 6cfaf1c).
-Takodje, radi još lakšeg referisanja uvedena su specijalna imena za odredjene komitove. Jedan od njih je HEAD. HEAD predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.
-
-\subsubsection*{git log}
-\label{log}
+Izlaz |git diff| komande se može razložiti na celine. One su redom: datoteke koji se uporedjuju, metapodaci o datotekama, korišćeni markeri i najzad, promene podeljenje u delove. Razlog deljenja izmena u delove je jednostavan. Ako je u datoteci koja se sastoji od nekoliko hiljada linija, izmenjeno samo par, i to na različitim mestima, mnogo je preglednije prikazati samo delove koji se razlikuju. Nećemo detaljnije zalaziti u detalje ovih celina. One su objasnjenje u http://chimera.labs.oreilly.com/books/1230000000561/ch11.html (dodati u literaturu). Za sad je dovoljno pomenuti da se u slucaju da nije navedene nijedna opcija, linije koje imaju - na pocetku nalaze u verziji koja je u okviru poslednjeg komita, dok su one koje imaju + nalaze u radnoj verziji.
 
 \subsubsection{git checkout}
 \label{checkout}
