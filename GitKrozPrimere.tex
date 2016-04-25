@@ -106,7 +106,7 @@ Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste 
 \subsection{Životni ciklus datoteke}
 \label{subsec:ciklus}
 Datoteke u radnom direktorijumu pre svega mogu biti \textbf{praćene} i \textbf{nepraćene}. Izrazi praćene i nepraćene nam suštinski govore da li se te datoteke u poslednjoj verziji nalaze pod sistemom za kontrolu verzija.\\
-One koju su \textbf{praćene} mogu biti \textbf{modifikovane, nemodifikovane} i \textbf{spremne za komitovanje }(eng. \textbf{staged}). Pri prebacivanju datoteka iz Git direktorijuma u radni ili pri kloniranju repozitorijuma, datoteke u radnom direktorijumu imaju status \textbf{nemodifikovane}. Menjanjem istih, Git ih prepoznaje kao \textbf{modifikovane} jer više nisu iste kao poslednja komitovana verzija. Označavanjem da je neka datoteka spremna za komitovanje i komitovanjem, životni ciklus te datoteke se zatvara. Verzija u radnom direktorijumu više nije različita od poslednje komitovane verzije, pa ta datoteka ponovo ima status nemodifikovane.
+One koju su \textbf{praćene} mogu biti \textbf{modifikovane, nemodifikovane} i \textbf{spremne za komitovanje }(eng. \textbf{staged}). Pri prebacivanju datoteka iz Git direktorijuma u radni ili pri kloniranju repozitorijuma, datoteke u radnom direktorijumu imaju status \textbf{nemodifikovane}. Menjanjem istih, Git ih prepoznaje kao \textbf{modifikovane} jer više nisu iste kao poslednja komitovana verzija. Označavanjem da je neka datoteka spremna za komitovanje i komitovanjem iste, njen životni ciklus se zatvara. Verzija u radnom direktorijumu više nije različita od poslednje komitovane verzije, pa ta datoteka ponovo ima status nemodifikovane.
 \textbf{Nepraćene} datoteke, pored toga što mogu nastati pravljenjem novih datoteka, mogu biti i datoteke koje su bile pod sistemom za praćenje verzija, ali su obrisane odatle. Uvođenje nepraćenih datoteka pod sistem za kontrolu verzija započinje tako što se one označe kao spremne za komitovanje, a onda se mogu komitovati i time postaju praćene.
 Ilustracija se može videti na slici \ref{fig:git_lifecycle}.
 
@@ -161,7 +161,7 @@ Provera koje su to datoteke spremne za komitovanje (u Staging Area) može se ura
 
 \subsubsection*{git add}
 \label{subsec:git_add}
-Nakon izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema za komitovanje se vrši komandom |git add| koja može bit pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
+Nakon izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno dodavanje datoteka u Staging Area. Priprema za komitovanje se vrši komandom |git add| koja može biti pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
 
 
 \subsubsection*{git commit}
@@ -221,7 +221,7 @@ U slučaju da se navede identifikator komita, dobiće se slika repozitorijuma ko
 \subsection{Ispravljanje grešaka}
 \label{subsec:greske}
 
-U zavisnosti od toga u kom se stanju nalazi datoteka koja sadrži grešku koju želimo da ispravimo, ispravljanje grešaka možemo svrstati u četiri kategorije. One su redom: ispravljanje lokalnih grešaka, ispravljanje grešaka koje se nalaze u Staging Area, ispravljanje komitovanih grešaka i uklanjanje kompletnih komitova.
+U zavisnosti od toga u kom se stanju nalazi datoteka koja sadrži grešku koju želimo da ispravimo, ispravljanje grešaka možemo svrstati u četiri kategorije. One su redom: ispravljanje lokalnih grešaka, ispravljanje grešaka koje se nalaze u Staging Area i ispravljanje komitovanih grešaka.
 
 \subsubsection*{Ispravljanje lokalnih grešaka}
 \label{lokalne_greske}
@@ -249,7 +249,7 @@ Git je implementiran tako da je rad sa granama prirodan, brz i veoma efikasan i 
 \label{subsec:pravljenje_grana}
 Za pravljenje nove grane koristimo opciju |git branch <ime grane>|. Bitno je napomenuti da smo ovim samo napravili novi pokazivač, i da se i dalje nalazimo na istoj grani na kojoj smo bili. Da bismo se prebacili na novokreiranu granu potrebno je uraditi |git checkout <ime grane>|. Da ne bi koristili dve komande za pravljenje i prebacivanje na novu granu, ovo je moguće uraditi jednom komandom: |git checkout -b <ime grane>|. 
 Sada, kada se nalazimo na novoj grani, svako dodavanje komita će zajedno sa pomeranjem našeg HEAD pokazivača, istovremeno pomerati i pokazivać koji odgovara grani na kojoj se nalazi. Skakanje sa grane na granu se može zamisliti jednostavnim menjanjem HEAD pokazivača na vrednost pokazivača koji odgovara grani na koju želimo da skočimo.\\
-Za brisanje grana se koristi komanda |git branch -d <ime grane>|. Sve što će uraditi ova komanda je brisanje pokazivač tako da mi više nemamo uvid u postojanje te grane. Postavlja se pitanje da li će Git obrisati i sve komitove koje pripadaju samo obrisanoj grani? Neće. Ovo je još jedna od zgodnih strana Git-a, koji zapravo ništa ne briše kompletno, već samo nama ne dozvoljava da direktno vidimo ``obrisane'' stvari. One se i dalje nalaze u \textit{.git} direktorijumu, i za trajno brisanje podataka je potrebno ručno obrisati ih u njemu. Detalji o tome kako pronaći ovakve promene se nalaze u \cite{progit}.\\
+Za brisanje grana se koristi komanda |git branch -d <ime grane>|. Sve što će uraditi ova komanda je brisanje pokazivača tako da mi više nemamo uvid u postojanje te grane. Postavlja se pitanje da li će Git obrisati i sve komitove koje pripadaju samo obrisanoj grani? Neće. Ovo je još jedna od zgodnih strana Git-a, koji zapravo ništa ne briše kompletno, već samo nama ne dozvoljava da direktno vidimo ``obrisane'' stvari. One se i dalje nalaze u \textit{.git} direktorijumu, i za trajno brisanje podataka je potrebno ručno obrisati ih u njemu. Detalji o tome kako pronaći ovakve promene se nalaze u \cite{progit}.\\
 Kada završimo sa razvojem naše grane i ispostavi se da nam razvijeni dodaci odgovoraju, poželjno je da imamo mogućnost da ih integrišemo sa sadržajem glavne grane. U Git-u je ovo moguće uraditi na dva različita načina korišćenjem dve komande:|git rebase| i |git merge|.  
 
 \subsection{Rebase}
