@@ -130,7 +130,7 @@ git config --global user.email <email>
 \end{lstlisting}
 
 \noindent
-Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika koji ga je napravio. Opcija |--global| označava da je podešavanje globalnog opsega, tj. važi za sve repozitorijume u sistemu. Izostavljanjem ove opcije podešavanje se vezuju samo za tekući repozitorijum. Sva podešavanja sa globnim opsegom se čuvaju u \textit{.gitconfig} datoteci u \textit{home} direktorijumu na Linux sistemima. Direktnim menjanjem sadržaja ove datoteke se može izbeći kucanje komandi za svako podešavanje koje želimo da promenimo. Dodatne informacije o |git config| komandi kao i neka zgodna podešavanja se mogu naći u literaturi.
+Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika koji ga je napravio. Opcija |--global| označava da je podešavanje globalnog opsega, tj. važi za sve repozitorijume u sistemu. Izostavljanjem ove opcije podešavanje se vezuje samo za tekući repozitorijum. Sva podešavanja sa globalnim opsegom se čuvaju u \textit{.gitconfig} datoteci u \textit{home} direktorijumu na Linux sistemima. Direktnim menjanjem sadržaja ove datoteke se može izbeći kucanje komandi za svako podešavanje koje želimo da promenimo. Dodatne informacije o |git config| komandi kao i neka zgodna podešavanja se mogu naći u literaturi.
 
 \subsection{Osnovne komande}
 \label{osnovne_komande}
@@ -215,7 +215,7 @@ Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu n
 \subsubsection*{git checkout}
 \label{checkout}
 Komanda |git checkout <file | branch | commit>| se koristi za menjanje radne kopije verzijom iz repozitorijuma. Specijalni slučaj korišćenja ove komande se odnosi na rad sa granama i objašnjen je u poglavlju \ref{subsec:pravljenje_grana}\\
-Ukoliko se navede ime datoteke sadržaj te datoteke u radnoj kopiji će biti zamenjem sadržajem te datoteke iz repozitorijuma, dok ukoliko se navede ime grane, sadržaj kompletnog radnog direktorijuma će biti zamenjem sadržajem grane iz repozitorijuma.\\
+Ukoliko se navede ime datoteke sadržaj te datoteke u radnoj kopiji će biti zamenjem sadržajem te datoteke iz repozitorijuma, dok ukoliko se navede ime grane, sadržaj kompletnog radnog direktorijuma će biti zamenjen sadržajem grane iz repozitorijuma.\\
 U slučaju da se navede identifikator komita, dobiće se slika repozitorijuma koja odgovora tom komitu. Tada će se radni direktorijum nalaziti u ``detached HEAD'' stanju, tj. moguće je samo pogledati stanje, ne i menjati ga. Da bi se nastavilo sa menjanjem mora se preuzeti sadržaj neke grane.
 
 \subsection{Ispravljanje grešaka}
@@ -235,11 +235,9 @@ Pretpostavimo da smo napravili dobru izmenu, pripremili je za sledeći komit, a 
 \subsubsection*{Ispravljanje komitovanih grešaka}
 \label{komitovane_greske}
 Do sada smo videli kako da ispravimo greške koja su nastale pre trajnog zapisivanja u repozitorijum. Postavlja se pitanje šta uraditi ako smo neke neželjene promene trajno zapisali, a želimo da ih ispravimo. Ovo je moguće postići na dva načina: korišćenjem |git revert <commit>| komande, i korišćenjem |git reset <commit>| komande sa opcijom |--hard|.\\
-|git revert| uvodi novi komit koji otklanja promene nastale komitom koji želimo da ispravimo, dok korišćenje |git reset| komande sa opcijom |--hard| trenutna grana će imati vrednost navedenog komita, i svi komitovi nastali posle njega će se izgubiti. \\
-
+|git revert| uvodi novi komit koji otklanja promene nastale komitom koji želimo da ispravimo, dok korišćenjem |git reset| komande sa opcijom |--hard| trenutna grana će imati vrednost navedenog komita, i svi komitovi nastali posle njega će se izgubiti. \\
 Prvi način je bezbedan, ali ružan. Umesto da eliminišemo neželjeni komit zapravo dobijamo dva komita koja se odnose na grešku. Drugi slučaj je lepši ali ``prljaviji'', jer zapravo menjamo tok istorije repozitorijuma što nekad nije poželjno raditi, pogotovo kad su u pitanju udaljeni repozitorijumi. \\
-
-Ukoliko ne želimo da obrišemo kompletne promene uvedene komitom, već želimo da dodamo nešto što smo zaboravili ili da promenimo poruku, može se iskoristi |git commit| sa opcijom |--amend| koja će dodatne izmene samo dodatati kao sastavni deo poslednjeg komita. Efekat ove komande je identičan kao da smo resetovali granu na prethodni komit i napravili novi koji sadrži potpunu izmenu.
+Ukoliko ne želimo da obrišemo kompletne promene uvedene komitom, već želimo da dodamo nešto što smo zaboravili ili da promenimo poruku, može se iskoristi |git commit| sa opcijom |--amend| koja će dodatne izmene samo dodati kao sastavni deo poslednjeg komita. Efekat ove komande je identičan kao da smo resetovali granu na prethodni komit i napravili novi koji sadrži potpunu izmenu.
 
 
 \section{Rad sa granama}
@@ -279,7 +277,7 @@ Merge ili spajanje predstavlja akciju spajanja istorije dve grane, tako da posle
 
 \subsection{Konflikti}
 \label{subsec:konflikti}
-Jedna od najverovatnijih stvari koja će se desiti pri spajanju ili rebase procesu je da će nastati konflikt. Konflikt predstavlja situaciju u kojoj Git nije u stanju da razazna čiju verziju treba da primeni. Kada dođe do konflikta Git prekida sa ovim akcijama, upisuje izmene obe strane i traži od korisnika da ručno razreši konflikt pre nego što nastavi. Mesto gde je nastao konflikt se može prepoznati po tome što se u datoteci koju Git prijavi kao problematičnu nalaži sledeći segment:
+Jedna od najverovatnijih stvari koja će se desiti pri spajanju ili rebase procesu je da će nastati konflikt. Konflikt predstavlja situaciju u kojoj Git nije u stanju da razazna čiju verziju treba da primeni. Kada dođe do konflikta Git prekida sa ovim akcijama, upisuje izmene obe strane i traži od korisnika da ručno razreši konflikt pre nego što nastavi. Mesto gde je nastao konflikt se može prepoznati po tome što se u datoteci koju Git prijavi kao problematičnu nalazi sledeći segment:
 \begin{lstlisting}
 <<<<<<<<<<< HEAD
 tekst
