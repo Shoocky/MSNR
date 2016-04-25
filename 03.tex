@@ -1,0 +1,361 @@
+ % !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{report}
+
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8x,utf8]{inputenc} % make weird characters work
+\usepackage[serbian]{babel}
+%\usepackage[english,serbianc]{babel}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\odgovor}[1]{\textcolor{blue}{#1}}
+
+\begin{document}
+
+\title{Kratki vodič kroz Git\\ \small{Nemanja Radosavljević, Milan Stojković}}
+
+\maketitle
+\tableofcontents
+
+\chapter{Uputstva}
+\emph{Prilikom predavanja odgovora na recenziju, obrišite ovo poglavlje.}
+
+Neophodno je odgovoriti na sve zamerke koje su navedene u okviru recenzija. Svaki odgovor pišete u okviru okruženja \verb"\odgovor", \odgovor{kako bi vaši odgovori bili lakše uočljivi.} 
+\begin{enumerate}
+
+\item Odgovor treba da sadrži na koji način ste izmenili rad da bi adresirali problem koji je recenzent naveo. Na primer, to može biti neka dodata rečenica ili dodat pasus. Ukoliko je u pitanju kraći tekst onda ga možete navesti direktno u ovom dokumentu, ukoliko je u pitanju duži tekst, onda navedete samo na kojoj strani i gde tačno se taj novi tekst nalazi. Ukoliko je izmenjeno ime nekog poglavlja, navedite na koji način je izmenjeno, i slično, u zavisnosti od izmena koje ste napravili. 
+
+\item Ukoliko ništa niste izmenili povodom neke zamerke, detaljno obrazložite zašto zahtev recenzenta nije uvažen.
+
+\item Ukoliko ste napravili i neke izmene koje recenzenti nisu tražili, njih navedite u poslednjem poglavlju tj u poglavlju Dodatne izmene.
+\end{enumerate}
+
+Za svakog recenzenta dodajte ocenu od 1 do 5 koja označava koliko vam je recenzija bila korisna, odnosno koliko vam je pomogla da unapredite rad. Ocena 1 označava da vam recenzija nije bila korisna, ocena 5 označava da vam je recenzija bila veoma korisna. 
+
+NAPOMENA: Recenzije ce biti ocenjene nezavisno od vaših ocena. Na osnovu recenzije ja znam da li je ona korisna ili ne, pa na taj način vama idu negativni poeni ukoliko kažete da je korisno nešto što nije korisno. Vašim kolegama šteti da kažete da im je recenzija korisna jer će misliti da su je dobro uradili, iako to zapravo nisu. Isto važi i na drugu stranu, tj nemojte reći da nije korisno ono što jeste korisno. Prema tome, trudite se da budete objektivni. 
+
+\chapter{Prvi recenzent \odgovor{--- ocena:} }
+
+\section{O čemu rad govori?}
+U radu je reč o git-u, sistemu za kontrolu verzija. Rad nam daje osnovnu sliku kako git radi, negove osnovne funkcije i funkcionalnosti. Kreće se od samog git projekta, njegova podela(tri sekcije),  nastavlja se sa različitim komandama poput komandi za upravljanje, komandi kreiranje repozitorijuma... Nakon toga je reč o greškama i ispravljanju istih, grananju i udaljenim repozitorijumima.
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+
+\section{Krupne primedbe i sugestije}
+Stil pisanja u poglavlju 2.2 odudara od ostatka teksta. Svuda sem tu je pisano u prvom licu tako da bi to trebalo promeniti.\newline
+Poglavlje 3, rečenica: ''Dodatne informacije o gitconfig komandi kao i neka zgodna podešavanja se mogu naći u literaturi.'' Ne referencira na litaraturu tj. u kojoj od navedenih izvora.\newline
+Bilo bi poželnjo povećati veličinu slika, bez unošenja lica u ekran teško se vidi šta je na njima.\newline
+\odgovor{Na dva monitora (23 i 15 inča, FHD i HD Ready), sa 150 procenata zuma i sa udaljenosti od oko 120cm (kako inače čitam), sve slike su jasne i slova na njima čitka. Odštampana verzija jeste nešto sitnija, ali ništa toliko dramatično. Jednostavno nema mesta da slike budu veće i smatram da je nedopustivo da se izbaci deo teksta kako bi slika bila veća.}\\
+Nijedna engleska reč nije adekvatno obeležena, ''(eng. reč)'' \newline
+\odgovor{Obeležene su.}\\
+Poglavlje 2.2, životni ciklus datoteke. U teksta se ne priča o životnom veku, više se priča o statusima tih datoteka. Potrebno je na početku pasusa objasniti šta ti statusi predstavljaju za životni vek ili preimenovati podnaslov jer ovako kako je trenutno nije u sklađeno.
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+
+Definicije navedene na samom početku nisu referencirane ka litaraturi, ne znam da li su ih oni sami smišljali i da ili ih nisu citirali. \\
+\odgovor{Definicije smo mi napisali, pa ne možemo da referišemo na literaturu. To su samo termini, potrebni za praćenje teksta.}\\
+Šta više, samo dva poglavlja su pokrivena literaturom, ne znam da li su rad pisali iz glave (šta oni lično znaju) ili nisu referencirali tekst kako treba. \\
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+U radu ima preko 50 slovnih grešaka, kad je u pitanju korišćenje engleskog alfabeta umesto latinice.\\
+\odgovor{Ispravljene greške tog tipa (svakako manje od 50).}\\
+U uvodu ima puno propusta što se tiče slovnih grešaka(engleska tastatura) u daljem teksu manje ali i dalje veoma primetno. Npr. slovo Đ se nigde nije koristilo samo Dj(sem u zaključku).\\
+\odgovor{Ispravljeno.}\\
+5. red uvoda, ovog* umesto ovo, čitaoca,\newline
+\odgovor{Ispravljeno.}\\
+Podglavlje 2.1,''Ukoliko ste je pre eksperimentisanja prebacili u Staging area, ne postoji bojazan da bilo šta izgubite.'' Ispraviti rečenicu, ovakva nema smisla.\newline
+git add opis, može biti umesto bit.\newline
+
+Poglavlje 4.1, druga rečenica, ovim* umesto ovimo. Pravilno je vrednosti ne ''vrednošći''. Ne dozvoljava* umesto nedozvoljava\\
+\odgovor{U ovom kontekstu, pravilno je ''vrednošću.'' Promenjena rečenica, da ne bude reč u spornom obliku. Ispravljene druge dve greške.}\\
+
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Rad pokriva sve osnovne stvari o Git-u.
+\item Da li je nešto važno propušteno?\\
+Koliko sam upićen u temu ne bih mogao reći da je nešto važno propušteno. Eventualno je moglo biti jedan pasus o Git Desktop verziji ali nije to veliki propust.
+\item Da li ima suštinskih grešaka i propusta?\\
+Nisam naišao na suštinske greške niti propuste.
+\item Da li je naslov rada dobro izabran?\\
+Jeste, daje jasnu predstavu šta čitalac može da očekuje kad krene da čita.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Sadrži sve informacije o radu potrebne da se čitaoc dovoljno zainteresuje da pogleda ovaj rad.
+\item Da li je rad lak-težak za čitanje?\\
+Rad je umereno lak za čitanje.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Potrebno je neko elementarno predznanje da bi se tekst razumeo bez poteškoća
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Za delove na koje referiše, da. Veći deo teksta nije referenciran litaraturom tako da se ne može dati ispravan odgovor na ovo pitanje.
+\item Da li su u radu reference korektno navedene?\\
+Slike, tabele i drugi podnaslovi imaju adekvatne reference.
+\item Da li je struktura rada adekvatna?\\
+Da
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Ima sva podglavlja i broj strana je odgovarajući.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Odgovaraju onome na šta se tekst oslanja.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+ c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+
+
+\chapter{Drugi recenzent \odgovor{--- ocena:} }
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad govori najviše o mogućim komandama sa kojima se susrećemo prilikom rada sa git-om. Obuhvaćene su sve najbitnije stvari koje se koriste na dnevnoj bazi prilikom programiranja kao što su commit, push, pull, merge kao i koje sve mogućnosti postoje za resetovanje promena ili komitova. 
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Jedino što bih dodao na ovaj rad je neki detaljniji primer rešavanja konflikta jer je to situacija koja je česta i nimalo jednostavna za razrešavanje.
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Na nekim mestima nisu korišćena slova azbuke(c umesto č i ć itd). \\
+Takođe ima par jezičkih grešaka(spremana-spremna), kao i loše formulisane rečenice (Uvodenje nepraćenih datoteke...). \\
+\odgovor{Na nekim mestima su ispravljne greške tog tipa. Pomenuta rečenica je formulisana dobro, jedno slovo je otkucano loše.}\\
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da, rad zadovoljava naziv teme, objašnjenje su sve komande sa kojima se susrećemo svakodnevno.
+\item Da li je nešto važno propušteno?\\
+Ne.
+\item Da li ima suštinskih grešaka i propusta?\\
+Ne.
+\item Da li je naslov rada dobro izabran?\\
+Da, naslov rada određuje suštinu teme.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Da.
+\item Da li je rad lak-težak za čitanje?\\
+Lak.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Nije potrebno predznanje.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da.
+\item Da li su u radu reference korektno navedene?\\
+Da.
+\item Da li je struktura rada adekvatna?\\
+Da.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Da.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+b) Veoma upućeni u oblast - Više od godinu dana svakodnevnog korišćenja na poslu.
+
+
+\chapter{Treći recenzent \odgovor{--- ocena:} }
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad govori o jednom od najpoznatijih sistema za kontrolu verzija, o Git-u, kao i o kratkom upustvu za njegovo korišćenje koje može pomoći da se shvati suština njegovog rada kao i da se korisnik upozna sa njegovim osnovnim komandama.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Ne bi trebalo ništa da se ni doda ni oduzme jer rad obuhvata ono najbitnije, pogodjena je suština, i opisane su osnovne komande i funkcije za rad sa Gitom.
+
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+U uvodu se na više mesta ne koriste slova č,š,ž...U reči ''nainom'' je izostavljeno č i reč ''funkcionisa'' je nedovršena.\newline
+\odgovor{Ispravljene sve navedene greške.}\\
+
+U definiciji 2.1. reč ''fajlava'' da se izmeni.\newline
+\odgovor{Zamenjena reč, sada je ''datoteka''}\\
+
+Pasus posle definicija, druga rečenica ''...pocinje kao kopija neke druge grana...'' da se stavi č i ''grana'' u ''grane''.\newline
+\odgovor{Ispravljeno.}\\
+
+U definiciji 2.6 ''poku\textbf{Š}avaju''.\newline
+\odgovor{Ispravljeno.}\\
+
+Sekcije Git projekta\newline
+U rečenici ''To mogu biti datoteke koje ste povukli iz repozitorijuma ili novonapravljene datoteke, sa njima radite, odnosno njih menjate.'' deo ''sa njima radite'' je nepotreban jer je to navedeno u prethodnoj rečenici.\\
+\odgovor{Obrisan i taj deo i ostatak do kraja rečenice.}\\
+
+U rečenici o Git direktorijumu ''pod sistemom za kontrol\textbf{U} verzija''.\newline
+\odgovor{Ispravljeno.}\\
+
+Životni ciklus datoteke
+Prvi deo rečenice da se preformuliše ''Označavanjem da je neka datoteka spremana za komitovanje i
+komitovanjem, životni ciklus te datoteke se zatvara.'' Može da se doda ''...i komitovanjem iste...''.\\
+
+Kasnije u pasusu ''Uvodenje nepraćenih datotek\textbf{A}...''.\newline
+\odgovor{Ispravljeno.}\\
+
+Osnovne komande\newline
+git init, git clone \newline
+U drugom pasusu ''pravlj\textbf{E}nje''\newline
+\odgovor{Ispravljeno.}\\
+
+Ispravljanje komitovanih grešaka\newline
+U drugom pasusu, treća rečenica  ''Drugi slučaj \textbf{JE} lepši...'' i u trećem pasusu, prva rečenica, poslednji deo da se ispravi.\newline
+\odgovor{Ispravljeno je sve navedeno.}\\
+
+Pravljenje i praćenje grana\newline
+U poslednjoj rečenici ''...na dva različit\textbf{A}...''\newline
+\odgovor{Ispravljeno.}\\
+
+git push\newline
+U drugoj rečenici ''ud\textbf{A}ljeni''\newline
+\odgovor{Ispravljeno.}\\
+
+Zaključak\newline
+U drugoj rečenici ''ola\textbf{K}šati''\newline
+\odgovor{Ispravljeno.}\\
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da, rad odgovara na zadatu temu.
+\item Da li je nešto važno propušteno?\\
+Ništa važno nije propušteno.
+\item Da li ima suštinskih grešaka i propusta?\\
+Nema suštinskih grešaka sem manjih gramatičkih grešaka.
+\item Da li je naslov rada dobro izabran?\\
+Dobro je izabran.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Sadrži prave podatke.
+\item Da li je rad lak-težak za čitanje?\\
+Rad je lak za čitanje.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Jeste, potrebno je znati koncept sistema za kontrolu verzija i kako on funkcioniše.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da, navedena je odgovarajuća literatura.
+\item Da li su u radu reference korektno navedene?\\
+Da, reference su korektno navedene.
+\item Da li je struktura rada adekvatna?\\
+Da, struktura rada je adekvatna.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da, rad sadrži sve potrebne elemente.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Jesu.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Moja upućenost je negde izmedju c) i d). Upoznat sam sa osnovama i imam neko iskustvo u radu sa Git sistemom.
+
+
+\chapter{Četvrti recenzent \odgovor{--- ocena:} }
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad sasvim lepo daje uvod u alat za kontrolu verzije koda, Git. Prvo opisuje uvod u git kroz strukturu i osobinu alata, posle obrađuje komande nad lokalnim repozitorijumom, nakon toga nad udaljenim.
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Radu fali malo da bude odličan, ali krivo mi je što loš utisak stvaraju pravopisne i stamparske greške, kojih ima stvarno dosta, jedan prolazak kroz tekst i njihova ispravka bi bili dovoljni.
+\\
+git pull bi trebalo da se naglasi da je to fetch plus merge, možda bi trebalo da se naglase loše strane merge u odnosu na rebase, i zašto je preporuka da se radi git pull --rebase. Ogrničeni smo dužinom rada, ali našao bih mesto za komandu cherry-pick.
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+
+Sažetak  ''kontrolu verzija. Git.'' treba zarez pre reči Git umesto tačke.
+\\
+\odgovor{Stavljen zarez umesto tačke.}\\
+Uvod. ''Svrha ovog rada'' ''ovog'', ''citaoca'' ''čitaoca'', ''nainom'' ''načinom'', ''funkcionisa'' ''funkcionisanja'', ''sluzi'' ''služi'', ''pocetnicima'' ''početnicima'', ''izmedju'' ''između''.
+\\
+\odgovor{Ispravljene sve navedene greške.}\\
+Sekcija 2. ''uvesti neki osnovne'' neke, '' fajlava koja'' '' fajlova koji'', ''Takodje'' ''Takođe'', ''odredjene'' ''određene'', '' medjusobno '' '' međusobno '', ''pocinje'' ''počinje'', ''neke druge grana'' ''neke druge grane'', ''pokusavaju'' ''pokušavaju''.
+\\
+\odgovor{Ispravljene sve slovne grške, umesto ''fajlova'', napisano ''datoteka''.}\\
+Sekcija 2.2 ''ponovo imas stat'' ''ima'', ''nepraćenih datoteke'' ''datoteka''.
+\\
+\odgovor{Ispravljene sve navedene greške.}\\
+Sekcija 3.2 ''grešku koji želimo'' ''koju'', ''jos'' ''još'', ''Tacnije'' ''Tačnije''.
+\\
+\odgovor{Ispravljene sve navedene greške.}\\
+Sekcija 4.1 ''vrednošći'' ''na vrednost'',
+\\
+\odgovor{Trebalo je pisati vrednošću, ali je tako jasnije. Ispravljeno.}\\
+Sekcija 4.2  ''pomerenje''  ''pomeranje'',
+\\
+\odgovor{Ispravljeno.}\\
+Sekcija 4.4 ''zmedju'' ''između'',\\
+\odgovor{Ispravljeno.}\\
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Rad u potpunosti odgovara temi.
+\item Da li je nešto važno propušteno?\\
+Ne.
+\item Da li ima suštinskih grešaka i propusta?\\
+Osim pravopisnih (čemu i služi recenziranje) sve ostalo je u redu.
+\item Da li je naslov rada dobro izabran?\\
+U redu je. Možda bi trebao da ima malo veću naučnu težinu.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Da.
+\item Da li je rad lak-težak za čitanje?\\
+Lak je za čitanje
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Osnovno predznanje iz računarstva.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da.
+\item Da li su u radu reference korektno navedene?\\
+Da.
+\item Da li je struktura rada adekvatna?\\
+Jeste.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Da. Možda nedostaju malo više slika terminala, kada su datoteke u određenim stanjima itd..
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+
+\chapter{Dodatne izmene}
+%Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+Napravljene su manje izmene kako bi rad ostao u zadatim okvirima. Zamenjene su neke neključne reči svojim kraćim ekvivalentima i slično.
+Na par mesta je promenjen red reči ili dodata/oduzeta neka reč kako bi tekst bio lakši za čitanje.
+\end{document}
+
+
