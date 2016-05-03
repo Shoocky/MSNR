@@ -48,16 +48,19 @@ U radu je reč o git-u, sistemu za kontrolu verzija. Rad nam daje osnovnu sliku 
 \section{Krupne primedbe i sugestije}
 Stil pisanja u poglavlju 2.2 odudara od ostatka teksta. Svuda sem tu je pisano u prvom licu tako da bi to trebalo promeniti.\newline
 Poglavlje 3, rečenica: ''Dodatne informacije o gitconfig komandi kao i neka zgodna podešavanja se mogu naći u literaturi.'' Ne referencira na litaraturu tj. u kojoj od navedenih izvora.\newline
+\odgovor{Dodata referenca}\\
 Bilo bi poželnjo povećati veličinu slika, bez unošenja lica u ekran teško se vidi šta je na njima.\newline
 \odgovor{Na dva monitora (23 i 15 inča, FHD i HD Ready), sa 150 procenata zuma i sa udaljenosti od oko 120cm (kako inače čitam), sve slike su jasne i slova na njima čitka. Odštampana verzija jeste nešto sitnija, ali ništa toliko dramatično. Jednostavno nema mesta da slike budu veće i smatram da je nedopustivo da se izbaci deo teksta kako bi slika bila veća.}\\
 Nijedna engleska reč nije adekvatno obeležena, ''(eng. reč)'' \newline
 \odgovor{Obeležene su.}\\
-Poglavlje 2.2, životni ciklus datoteke. U teksta se ne priča o životnom veku, više se priča o statusima tih datoteka. Potrebno je na početku pasusa objasniti šta ti statusi predstavljaju za životni vek ili preimenovati podnaslov jer ovako kako je trenutno nije u sklađeno.
+Poglavlje 2.2, životni ciklus datoteke. U teksta se ne priča o životnom veku, više se priča o statusima tih datoteka. Potrebno je na početku pasusa objasniti šta ti statusi predstavljaju za životni vek ili preimenovati podnaslov jer ovako kako je trenutno nije u sklađeno.\\
+\odgovor{Status datoteke predstavlja stanje u kom se nalazi datoteka u odnosu na Git. Prolazak kroz stanja definiše životni ciklus.}\\
 % Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
 
 Definicije navedene na samom početku nisu referencirane ka litaraturi, ne znam da li su ih oni sami smišljali i da ili ih nisu citirali. \\
 \odgovor{Definicije smo mi napisali, pa ne možemo da referišemo na literaturu. To su samo termini, potrebni za praćenje teksta.}\\
 Šta više, samo dva poglavlja su pokrivena literaturom, ne znam da li su rad pisali iz glave (šta oni lično znaju) ili nisu referencirali tekst kako treba. \\
+\odgovor{Sve je pokriveno literaturom, ali ne na taj način da se može direktno referisati literatura}
 
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
@@ -126,7 +129,8 @@ Odgovaraju onome na šta se tekst oslanja.
 Rad govori najviše o mogućim komandama sa kojima se susrećemo prilikom rada sa git-om. Obuhvaćene su sve najbitnije stvari koje se koriste na dnevnoj bazi prilikom programiranja kao što su commit, push, pull, merge kao i koje sve mogućnosti postoje za resetovanje promena ili komitova. 
 \section{Krupne primedbe i sugestije}
 % Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
-Jedino što bih dodao na ovaj rad je neki detaljniji primer rešavanja konflikta jer je to situacija koja je česta i nimalo jednostavna za razrešavanje.
+Jedino što bih dodao na ovaj rad je neki detaljniji primer rešavanja konflikta jer je to situacija koja je česta i nimalo jednostavna za razrešavanje.\\
+\odgovor{Princip rešavanja konflikata je iznesen u radu i svaki se rešava manje više na isti način. Naravno, može se desiti da sam konflikt bude zapetljan, i da je potrebno izmeniti dosta stvari, ali suština ostaje ista. Dodatno, Git ne rešava konflikte, već kad naiđe na njega prepušta kontrolu korisniku i očekuje od njega da ga reši. S ovim na umu rešavanje konflikata ni ne pripada striktno temi ovog rada, pa nismo zalazali u detalje. Svakako da rešavanje konflikata može da predstavlja ozbiljan problem, ali za to jednostvno nema mesta u ovom radu. Ako bude postojalo interesovanje za proširenu verziju rada, rado ćemo obraditi i tu temu.}
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
 Na nekim mestima nisu korišćena slova azbuke(c umesto č i ć itd). \\
@@ -286,9 +290,11 @@ Moja upućenost je negde izmedju c) i d). Upoznat sam sa osnovama i imam neko is
 Rad sasvim lepo daje uvod u alat za kontrolu verzije koda, Git. Prvo opisuje uvod u git kroz strukturu i osobinu alata, posle obrađuje komande nad lokalnim repozitorijumom, nakon toga nad udaljenim.
 \section{Krupne primedbe i sugestije}
 % Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
-Radu fali malo da bude odličan, ali krivo mi je što loš utisak stvaraju pravopisne i stamparske greške, kojih ima stvarno dosta, jedan prolazak kroz tekst i njihova ispravka bi bili dovoljni.
-\\
-git pull bi trebalo da se naglasi da je to fetch plus merge, možda bi trebalo da se naglase loše strane merge u odnosu na rebase, i zašto je preporuka da se radi git pull --rebase. Ogrničeni smo dužinom rada, ali našao bih mesto za komandu cherry-pick.
+Radu fali malo da bude odličan, ali krivo mi je što loš utisak stvaraju pravopisne i stamparske greške, kojih ima stvarno dosta, jedan prolazak kroz tekst i njihova ispravka bi bili dovoljni.\\
+\odgovor{Zaista se izvinjavamo zbog ovoga. Neka stvari su nam se provukle bez provere, dok druge nisu primećene ni tokom nje. Uostalom, revizije i služe da ukažu na ovakve greške. Za ovo krivimo tesne rokove :)\\ }
+git pull bi trebalo da se naglasi da je to fetch plus merge, možda bi trebalo da se naglase loše strane merge u odnosu na rebase, i zašto je preporuka da se radi git pull --rebase. Ograničeni smo dužinom rada, ali našao bih mesto za komandu cherry-pick. \\
+\odgovor{Dodato je da pull komanda zapravo predstavlja objedinjen fetch i merge. Što se odnosa rebase i merge tiče to je već malo naprednija tema, a rad se bavi samo osnovama. Dodatan otežavajući faktor predstavlja i okvir rada koji je potrebno ispoštovati.\\
+Za cherry-pick je slična situacija kao i za prethodnu primedbu. Sve ove stvari su se zapravo nalazile u široj verziji rada, ali onog momenta kad je trebalo rad svesti na zadati okvir, nešto je moralo biti izbačeno. Ako bude bilo interesovanja za proširenu verziju rada, navedeni nedostaci će svakako biti među prvim dodatim stvarima.}
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
 
