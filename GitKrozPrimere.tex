@@ -105,7 +105,7 @@ Pored ovog smera kretanja kroz Git sekcije, mogući su i drugi, koji se koriste 
 
 \subsection{Životni ciklus datoteke}
 \label{subsec:ciklus}
-Datoteke u radnom direktorijumu pre svega mogu biti \textbf{praćene} i \textbf{nepraćene}. Izrazi praćene i nepraćene nam suštinski govore da li se te datoteke u poslednjoj verziji nalaze pod sistemom za kontrolu verzija.\\
+Datoteke u radnom direktorijumu pre svega mogu biti \textbf{praćene} i \textbf{nepraćene}. Izrazi praćene i nepraćene suštinski govore da li se te datoteke u poslednjoj verziji nalaze pod sistemom za kontrolu verzija.\\
 One koju su \textbf{praćene} mogu biti \textbf{modifikovane, nemodifikovane} i \textbf{spremne za komitovanje }(eng. \textbf{staged}). Pri prebacivanju datoteka iz Git direktorijuma u radni ili pri kloniranju repozitorijuma, datoteke u radnom direktorijumu imaju status \textbf{nemodifikovane}. Menjanjem istih, Git ih prepoznaje kao \textbf{modifikovane} jer više nisu iste kao poslednja komitovana verzija. Označavanjem da je neka datoteka spremna za komitovanje i komitovanjem iste, njen životni ciklus se zatvara. Verzija u radnom direktorijumu više nije različita od poslednje komitovane verzije, pa ta datoteka ponovo ima status nemodifikovane.
 \textbf{Nepraćene} datoteke, pored toga što mogu nastati pravljenjem novih datoteka, mogu biti i datoteke koje su bile pod sistemom za praćenje verzija, ali su obrisane odatle. Uvođenje nepraćenih datoteka pod sistem za kontrolu verzija započinje tako što se one označe kao spremne za komitovanje, a onda se mogu komitovati i time postaju praćene.
 Ilustracija se može videti na slici \ref{fig:git_lifecycle}.
@@ -122,7 +122,7 @@ Ilustracija se može videti na slici \ref{fig:git_lifecycle}.
 \section{Kreiranje repozitorijuma i osnovne komande}
 \label{sec:kreiranje}
 
-Kako bi Git mogao da prati ko je napravio izmene, potrebno je da mu se predstavite. Između ostalog, za to koristimo  |git config| komandu.
+Kako bi Git mogao da prati ko je napravio izmene, potrebno je da mu se predstavite. Između ostalog, za to se koristi  |git config| komanda.
 
 \begin{lstlisting}[language=bash]
 git config --global user.name <name>
@@ -293,7 +293,7 @@ Rad sa udaljenim repozitorijumima je gotovo neizbežan u korišćenju Git-a, no,
 
 \subsection{git fetch i git pull}
 \label{subsec:git_pull}
-Izmene sačuvane u udaljenom repozitorijum mogu se povući i u lokalni komandom |git fetch|. Međutim, ova komanda ne osvežava i sadržaj radnog direktorijuma, već samo lokalnog repozitorijuma, a onda je na vama da to spojite sa izmenama u radnom direktorijumu. Ono što donekle ubrzava i olakšava ovaj proces je komanda |git pull|. Ona će za vas povući izmene iz udaljenog repozitorijuma i spojiti ih sa izmenama u radnom direktorijumu. Iako u velikoj većini slučajeva ovo radi sasvim dobro, treba ga koristiti s pažnjom jer ne postoji način da vidite koje su to izmene upravo napravljene u radnom direktorijumu i lokalnom repozitorijumu.
+Izmene sačuvane u udaljenom repozitorijum mogu se povući i u lokalni komandom |git fetch|. Međutim, ova komanda ne osvežava i sadržaj radnog direktorijuma, već samo lokalnog repozitorijuma, a onda je na vama da to spojite sa izmenama u radnom direktorijumu. Ono što donekle ubrzava i olakšava ovaj proces je komanda |git pull|. Ona će za vas povući izmene iz udaljenog repozitorijuma i spojiti ih sa izmenama u radnom direktorijumu. Drugim rečima, komanda |git pull| predstavlja objedinjene komande |git fetch| i |git merge| koje se automatski izvršavaju jedna za drugom. Dodatno, može se koristiti opcija |--rebase| da se naznači da se koristi |git rebase| umesto |git merge| Iako u velikoj većini slučajeva ovo radi sasvim dobro, treba ga koristiti s pažnjom jer ne postoji način da vidite koje su to izmene upravo napravljene u radnom direktorijumu i lokalnom repozitorijumu.
 
 
 
