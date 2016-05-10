@@ -58,8 +58,8 @@
 \item $git$ $config --global$ $user.name <name>$
 \item $git$ $config --global$ $user.email <email>$
 \newline
-\item $git$ $init$
-\item $git$ $clone$
+\item $git$ $init$ - inicijalizacija repozitorijuma
+\item $git$ $clone$ - kopiranje repozitorijuma
 \end{itemize}
 \end{frame}
 
@@ -76,7 +76,7 @@
 \begin{itemize}
 \item[--] radnog direktorijuma i Staging Area (podrazumevano)
 \item[--] radnog direktorijuma i traženog komita (HEAD ili identifikator nekog komita)
-\item[--] Staging Area i poslednjeg komita (--cached)
+\item[--] Staging Area i poslednjeg komita ([--]cached)
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -130,6 +130,80 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Rebase}
+\begin{itemize}
+\item $git $ $rebase$
+\end{itemize}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/rebase.png}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Merge}
+\begin{itemize}
+\item $git$ $ merge$
+\end{itemize}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{images/merge.png}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Udaljeni repozitorijumi}
+\begin{itemize}
+\item Preuzimanje izmena
+\begin{itemize}
+\item $git$ $ fetch$ - osvežavanje lokalnog repozitorijuma
+\item $git$ $ pull$ - fetch + merge
+\end{itemize}
+\item Slanje izmena
+\begin{itemize}
+\item $git$ $ push <remote> <branch>$ - slanje <branch> grane na <remote> udaljeni repozitorijum 
+\end{itemize}
+
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Proces}
+\begin{enumerate}
+\item Preuzeti najsvežiju verziju ($git$ $ pull$)
+\item Izmeniti
+\item Stejdžovati ($git$ $ add$)
+\item Komitovati ($git$ $ commit$)
+\item Ponovo preuzeti najsvežiju verziju  ($git$ $ pull$)
+\item Rešiti eventualne konflikte
+\item Poslati izmene ($git$ $ push$)
+\end{enumerate}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Literatura}
+\begin{itemize}
+\item Scott Chacon and Ben Straub. Pro Git. Apress, 2009.
+\item Richard Silverman. Git Pocket Guide. O'Reilly Media, 2013.
+\hover<2>{
+  \begin{minipage}{0.8\linewidth}
+   \begin{block}{Hvala na pažnji!}
+   \end{block}
+  \end{minipage}
+ }
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{This is a slide}
 \begin{itemize}
 \item These are more points
@@ -140,16 +214,12 @@
 \end{itemize}
 \end{frame}
 
-
-
-
 \begin{frame}
  \frametitle{A frame}
  Some text
  \hover<2>{
   \begin{minipage}{0.8\linewidth}
    \begin{block}{Hvala na pažnji!}
-  	ovde jos nesto
    \end{block}
   \end{minipage}
  }
