@@ -86,12 +86,16 @@ Više reči o konfliktima će biti u poglavlju \ref{subsec:konflikti}.
 \subsection{Sekcije Git projekta}
 \label{subsec:sekcije}
 Kako bi se potpuno shvatilo funkcionisanje Gita, potrebno je razumeti njegove tri sekcije koje koristi za praćenje promena: Radni direktorijum, prostor pripreme(stejdž, eng. staging area) i Git direktorijum odnosno baza.\\
+\begin{description}
 
-\textbf{Radni direktorijum} sadrži samo jednu verziju datoteka, i to one nad kojima se trenutno radi. To mogu biti datoteke koje ste povukli iz repozitorijuma ili novonapravljene datoteke.\\
+\item[Radni direktorijum] sadrži samo jednu verziju datoteka, i to one nad kojima se trenutno radi. To mogu biti datoteke koje ste povukli iz repozitorijuma ili novonapravljene datoteke.\\
 
-\textbf{Stejdž} je suštinski samo jedna datoteka koja čuva informacije o tome koje ste datoteke označili da želite da budu deo sledećeg komita.\\
+\item[Stejdž] je suštinski samo jedna datoteka koja čuva informacije o tome koje ste datoteke označili da želite da budu deo sledećeg komita.\\
 
-\textbf{Git direktorijum} je direktorijum u kom Git čuva sve meta podatke i bazu podataka svih fajlova koji su pod sistemom za kontrolom verzija.\\
+\item[Git direktorijum] je direktorijum u kom Git čuva sve meta podatke i bazu podataka fajlova koji su pod sistemom za kontrolom verzija.\\
+
+
+\end{description}
 
 Iako postoji način da se datoteke direktno prebace iz radnog u Git direktorijum, to ne umanjuje znacaj stejdža. Na primer, ukoliko pri razvoju složenene funkcionalnosti napravite ispravnu, stabilnu verziju, međutim želite da malo eksperimentišete sa njom jer mislite da postoji i bolje rešenje. Ukoliko ste je pre eksperimentisanja prebacili u stejdž, ne postoji bojazan da bilo šta izgubite. Ako eksperimentisanje dovede do toga da je datoteka bespovratno uništena, i dalje postoji ispravna verzija u stejdžu koja se može komitovati.\\
 
@@ -149,11 +153,9 @@ Podešavanje imena korisnika je obavezno, jer se svaki komit vezuje za korisnika
 \label{osnovne_komande}
 
 
-\begin{description}
+\subsubsection*{git init, git clone}
 
-\item[git init, git clone] \hfill
-
-Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kom se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma moze se videti na slici XXX.\\
+Git repozitorijum se može inicijalizovati u praznom direktorijumu, ali i u direktorijumu u kom se već radi na projektu. Za ovo se koristi komanda |git init|. Time će biti napravljen direktorijum \textit{.git} koji sadrži meta podatke repozitorijuma i pored toga sve ostalo ostaje nepromenjeno. Primer inicijalizacije repozitorijuma moze se videti na slici \ref{fig:git_init}.\\
 
 U velikoj većini slučajeva, |git init| se poziva samo jednom, za pravljenje centralnog repozitorijuma. Kasnije, svi oni koji učestvuju u razvoju će taj repozitorijum kopirati na lokalne mašine pomoću komande:
 \begin{lstlisting}[language=bash]
@@ -163,16 +165,16 @@ git clone <repozitorijum>
 gde |<repozitorijum>| treba zameniti adresom ogriginalnog repozitorijuma. Lokalni repozitorijum ima svoju istoriju izmena, svoje fajlove i potpuno je nezavisno okruženje od originalnog repozitorijuma. 
 
 
-\item[git status] \hfill \\
+\subsubsection*{git status}
 \label{subsec:git_status}
-Provera koje su to datoteke stejdžovane može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu stejdžovane, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati.
+Provera koje su to datoteke stejdžovane može se uraditi komandom |git status|. Pored toga, korišćenjem iste komande prikazuje se koje su datoteke promenjene u odnosu na repozitorijum, ali nisu stejdžovane, kao i datoteke koje ne postoje u repozitorijumu, odnosno sistem za kontrolu verzija ih i dalje ne prati. Primer je dat na slici \ref{fig:git_status}.
 
-\item[git add] \hfill \\
+\subsubsection*{git add}
 \label{subsec:git_add}
 Nakon izmena u radnoj verziji koje želite da upišete u repozitorijum, potrebna je priprema tih datoteka, odnosno stejdžovanje. Priprema za komitovanje se vrši komandom |git add| koja može biti pozvana više puta pre komitovanja, za istu ili neku drugu datoteku.
 
 
-\item[git commit] \hfill \\
+\subsubsection*{git commit}
 \label{subsec:git_commit}
 Upisivanje promena u repozitorijum, odnosno komitovanje, zahteva od korisnika i poruku kojom opisuje promene. Pozivom |git commit| komande otvara se podrazumevani tekst editor gde je potrebno uneti opis, a nakon toga se komit čuva u repozitorijumu. Opcijom -m i navođenjem poruke nakon nje se naznačava da želimo da koristimo tu poruku kao opis i tada se ne otvara tekst editor.\\
 
@@ -180,9 +182,9 @@ Svaki komit u bazi je jedinstveno određen SHA-1 heš vrednošću. Za referisanj
 Takođe, radi lakšeg referisanja uvedena su specijalna imena za određene komitove. Jedan od njih je HEAD, koji predstavlja poslednji komit na grani na kojoj se nalazimo. Dodatno se može koristiti i HEAD\^{}n za referisanje n-tog pretka HEAD komita.\\
 
 Bitno je napomenuti da pored izmena iz kojih se sastoji svaki komit, on sadrži i pokazivač na komit koji mu prethodi. Ovaj mali detalj će nam omogućiti lakše shvatanje kako Git vodi računa o granama.\\
-Na slici XXX je prikazan primer pripreme, komitovanja i pregleda statusa datoteka tokom ovog procesa.
+Na slici \ref{fig:git_commit} je prikazan primer pripreme, komitovanja i pregleda statusa datoteka tokom ovog procesa.
 
-\item[git log] \hfill \\
+\subsubsection*{git log}
 \label{log}
 Komanda |git log| se koristi za izlistavanje detalja o postojećim komitovima. Osnovni format je štur, a može biti i prilično nepregledan ako nas zanima veći broj komitova ili sam razvoj grane. Srećom, ova komanda ima mnoštvo dodatnih opcija i može se koristiti na razne načine. Neke od korisnijih opcija su navedene u tabeli \ref{tab:tabela1}.. 
 
@@ -205,14 +207,14 @@ komanda & opis\\ \hline
 \end{table}
 
 
-\item[git diff] \hfill \\
+\subsubsection*{git diff}
 \label{subsec:git_diff}
 Komanda |git diff| podrazumevano ispisuje razliku između radnog direktorijuma i stejdža. 
 Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika između radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika između stejdža i poslednjeg komita.
 Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{pocketguide} u poglavlju 11.
 
 
-\item[git checkout] \hfill \\
+\subsubsection*{git checkout}
 \label{checkout}
 Komanda |git checkout <file | branch | commit>| se koristi za menjanje radne kopije verzijom iz repozitorijuma. Specijalni slučaj korišćenja ove komande se odnosi na rad sa granama i objašnjen je u poglavlju \ref{subsec:pravljenje_grana}\\
 
@@ -220,7 +222,6 @@ Ukoliko se navede ime datoteke sadržaj te datoteke u radnoj kopiji će biti zam
 
 U slučaju da se navede identifikator komita, dobiće se slika repozitorijuma koja odgovora tom komitu. Tada će se radni direktorijum nalaziti u ``detached HEAD'' stanju, tj. moguće je samo pogledati stanje, ne i menjati ga. Da bi se nastavilo sa menjanjem mora se preuzeti sadržaj neke grane.
 
-\end{description}
 
 \subsection{Ispravljanje grešaka}
 \label{subsec:greske}
@@ -266,7 +267,7 @@ Kada završimo sa razvojem naše grane i ispostavi se da nam razvijeni dodaci od
 \label{subsec:rebase}
 Rebase predstavlja akciju integrisanja razlika između trenutne grane i neke druge, tačnije pomeranje komita u kom su se grane razdvojile na najsvežiji komit grane sa kojom se vrši integracija.\\
 
-Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:rebase}. Prvobitno je komit u kome su grane razdvojile bio K5. Grane su se nezavisno razvijale i u jednom trenutku je pozvan rebase sa namerom da se promene nastale na master grani integrišu u eksperimentalnu granu. U trenutku pozivanja komande rebase, prvo što Git uradi je pronalaženje zajedničkog pretka dveju grana (u ovom slučaju K4). Potom privremeno čuva sve komitove nastale od tog trenutka na grani na kojoj se nalazimo (Eksperiment), i pomera trenutnu granu na granu koju integrišemo (K5), tako da je sad prvi zajednički predak K5. Nakon ovog dodaje sve privremeno sačuvane komitove i pomera pokazivač trenutne grane na poslednji. Ovime je proces rabase završen.
+Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:rebase}, a primer korišćenja na slici \ref{fig:git_rebase}. Prvobitno je komit u kome su grane razdvojile bio K5. Grane su se nezavisno razvijale i u jednom trenutku je pozvan rebase sa namerom da se promene nastale na master grani integrišu u eksperimentalnu granu. U trenutku pozivanja komande rebase, prvo što Git uradi je pronalaženje zajedničkog pretka dveju grana (u ovom slučaju K4). Potom privremeno čuva sve komitove nastale od tog trenutka na grani na kojoj se nalazimo (Eksperiment), i pomera trenutnu granu na granu koju integrišemo (K5), tako da je sad prvi zajednički predak K5. Nakon ovog dodaje sve privremeno sačuvane komitove i pomera pokazivač trenutne grane na poslednji. Ovime je proces rabase završen.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.3]{images/rebase.png}
@@ -277,7 +278,7 @@ Ovo se postiže komandom |git rebase <ime grane>|. Rezultat ove operacije je ilu
 
 \subsection{Merge}
 \label{subsec:merge}
-Merge ili spajanje predstavlja akciju spajanja istorije dve grane, tako da posle spajanja pokazuju na isti komit. Ovo se postiže komandom |git merge <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:merge}. U trenutku poziva ove komande Git pronalazi najnovije komitove grana koje učestvuju u spajanju kao i njihovog zajedničkog pretka. U ovom slučaju to su redom, K2, K3 i K4. Potom pravi novi komit kao razliku ova tri komita i dodaje ga kao novi komit master grane (K5). Sada master sadrži sve promene koje se nalaze u ekperimentalnoj grani i ona se po potrebi može obrisati.
+Merge ili spajanje predstavlja akciju spajanja istorije dve grane, tako da posle spajanja pokazuju na isti komit. Ovo se postiže komandom |git merge <ime grane>|. Rezultat ove operacije je ilustrovan na slici \ref{fig:merge}, a primer korišćenja na slici \ref{fig:git_merge}. U trenutku poziva ove komande Git pronalazi najnovije komitove grana koje učestvuju u spajanju kao i njihovog zajedničkog pretka. U ovom slučaju to su redom, K2, K3 i K4. Potom pravi novi komit kao razliku ova tri komita i dodaje ga kao novi komit master grane (K5). Sada master sadrži sve promene koje se nalaze u ekperimentalnoj grani i ona se po potrebi može obrisati.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.3]{images/merge.png}
@@ -323,6 +324,48 @@ Upoznavanjem sa osnovama funkcionisanja Gita, komandama i nekim njihovim osnovni
 \appendix
 \bibliography{seminarski} 
 \bibliographystyle{plain}
+
+\appendix
+\section{Dodatak}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{images/init.png}
+\end{center}
+\caption{Inicijalizacija Gita}
+\label{fig:git_init}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{images/commit.png}
+\caption{Ilustracija stejdžovanja, komitovanja i provere statusa datoteke tokom tog procesa}
+\label{fig:git_commit}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/status.png}
+\caption{Demonstracija korišćenja git status komande kada postoje datoteke koje su stejdžovane, izmenjene, ali ne i stejdžovane, kao i datoteke koje su nepraćene}
+\label{fig:git_status}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/rebase_log.png}
+\caption{Demonstracija korišćenja git rebase komande i git log pre i nakon spajanja grana}
+\label{fig:git_rebase}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/merge_log.png}
+\caption{Demonstracija korišćenja git merge komande i git log pre i nakon spajanja grana}
+\label{fig:git_merge}
+\end{figure}
 
 
 \end{document}
