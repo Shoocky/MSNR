@@ -15,7 +15,7 @@
 
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
-
+\bibliographystyle{unsrt}
 \lstMakeShortInline[columns=fixed]|
 
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
@@ -209,7 +209,7 @@ komanda & opis\\ \hline
 \label{subsec:git_diff}
 Komanda |git diff| podrazumevano ispisuje razliku između radnog direktorijuma i Staging area. 
 Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika između radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika između Staging Area i poslednjeg komita.
-Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{pocketguide} u poglavlju 11.
+Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{inspecting_diff}.
 
 
 \subsubsection*{git checkout}
@@ -285,7 +285,7 @@ tekst
 tekst
 >>>>>>>>>>> SHA-1 komita
 \end{lstlisting}
-Prvi deo, između markera ``|<<<<<<|'' i ``======'' sadrži promene nastale u trenutnoj grani. Deo između  ``======'' i ``|>>>>>>|'' sadrži promene nastale u grani sa kojom se pokušava spajanje ili rebase. Sve što korisnik treba da uradi je da obriše ove markere, odluči koje stvari želi da zadrži i potom komituje razrešenu verziju i nastavi sa željenom akcijom.
+Prvi deo, između markera ``|<<<<<<|'' i ``======'' sadrži promene nastale u trenutnoj grani. Deo između  ``======'' i ``|>>>>>>|'' sadrži promene nastale u grani sa kojom se pokušava spajanje ili rebase. Sve što korisnik treba da uradi je da obriše ove markere, odluči koje stvari želi da zadrži i potom komituje razrešenu verziju i nastavi sa željenom akcijom. \cite{resolving_conflicts}
 \section{Rad sa udaljenim repozitorijumima}
 \label{sec:udaljeni_repozitorijumi}
 Rad sa udaljenim repozitorijumima je gotovo neizbežan u korišćenju Git-a, no, obzirom da postoji nezavisan lokalni repozitorijum, to je prilično jednostavno. Potrebno je osvežiti sadržaj lokalnog repozitorijuma iz udaljenog, odnosno propagirati promene u udaljeni repozitorijum.
