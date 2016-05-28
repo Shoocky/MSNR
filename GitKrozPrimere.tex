@@ -209,15 +209,7 @@ komanda & opis\\ \hline
 
 \subsubsection*{git diff}
 \label{subsec:git_diff}
-<<<<<<< HEAD
-Komanda |git diff| podrazumevano ispisuje razliku između radnog direktorijuma i Staging area. 
-Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika između radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika između Staging Area i poslednjeg komita.
-Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{inspecting_diff}.
-=======
-Komanda |git diff| podrazumevano ispisuje razliku između radnog direktorijuma i stejdža. 
-Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika između radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika između stejdža i poslednjeg komita.
-Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{pocketguide} u poglavlju 11.
->>>>>>> 8e6530078fae94004fbbc9ba1f736376bd2b2c0c
+Komanda |git diff| podrazumevano ispisuje razliku između radnog direktorijuma i Staging area. Ako se navede HEAD ili identifikator nekog drugog komita, prikazaće se razlika između radnog direktorijuma i traženog komita. Opcijom |--cached| se označava da nas zanima razlika između Staging Area i poslednjeg komita. Izlaz |git diff| komande je sličan diff naredbi na Linux-u, a detalji se mogu naći u \cite{inspecting_diff}.
 
 
 \subsubsection*{git checkout}
@@ -249,10 +241,9 @@ Do sada smo videli kako da ispravimo greške koja su nastale pre trajnog zapisiv
 
 |git revert| uvodi novi komit koji otklanja promene nastale komitom koji želimo da ispravimo, dok korišćenjem |git reset| komande sa opcijom |--hard| trenutna grana će imati vrednost navedenog komita, i svi komitovi nastali posle njega će se izgubiti. \\
 
-Prvi način je bezbedan, ali ružan. Umesto eliminisanja neželjenog komita zapravo dobijamo dva komita koja se odnose na grešku. Drugi slučaj je lepši ali ``prljaviji'', jer zapravo menjamo tok istorije repozitorijuma što često nije dobra praksa, pogotovo kad su u pitanju udaljeni repozitorijumi. \\
+Prvi način je bezbedan, ali ružan. Umesto eliminisanja neželjenog komita zapravo dobijamo dva komita koja se odnose na grešku. Drugi slučaj je lepši ali ``prljaviji'', jer zapravo menjamo tok istorije repozitorijuma što često nije dobra praksa, pogotovo kad su u pitanju udaljeni repozitorijumi. Primeri se mogu pogledati na slikama \ref{fig:git_revert} i \ref{fig:git_reset} \\
 
-Ukoliko ne želimo da obrišemo kompletne promene uvedene komitom, već želimo da dodamo nešto što smo zaboravili ili da promenimo poruku, može se iskoristi |git commit| sa opcijom |--amend| koja će dodatne izmene samo dodati kao sastavni deo poslednjeg komita. Efekat ove komande je identičan kao da smo resetovali granu na prethodni komit i napravili novi koji sadrži potpunu izmenu.
-
+Ukoliko ne želimo da obrišemo kompletne promene uvedene komitom, već samo da dodamo nešto što smo zaboravili ili promenimo poruku, može se iskoristi |git commit| sa opcijom |--amend| koja će dodatne izmene samo dodati kao sastavni deo poslednjeg komita. Efekat ove komande je identičan kao da smo resetovali granu na prethodni komit i napravili novi koji sadrži potpunu izmenu. Primer korišćenja je prikazan na slici \ref{fig:git_amend}
 
 \section{Rad sa granama}
 \label{sec:grane}
@@ -371,6 +362,30 @@ Upoznavanjem sa osnovama funkcionisanja Gita, komandama i nekim njihovim osnovni
 \caption{Demonstracija korišćenja git merge komande i git log pre i nakon spajanja grana}
 \label{fig:git_merge}
 \end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/revert_log.png}
+\caption{Demonstracija korišćenja git revert komande}
+\label{fig:git_revert}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/reset_hard_log.png}
+\caption{Demonstracija korišćenja git reset komande sa --hard opcijom}
+\label{fig:git_reset}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{images/komit_amend.png}
+\caption{Demonstracija korišćenja git commit komande sa --amend opcijom}
+\label{fig:git_amend}
+\end{figure}
+
 
 
 \end{document}
